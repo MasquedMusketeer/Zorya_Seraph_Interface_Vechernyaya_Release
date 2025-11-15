@@ -1,0 +1,12 @@
+{
+    "INTENT_DUMMY_EXAMPLE": {
+        "description": "Used as a tracking template.",
+        "tokens": [
+            "ACTION.DUMMY",
+            "OBJECT.DUMMY"
+        ],
+        "action_module": "dummy_module",
+        "action_function": "dummy_function",
+        "parameters": {}
+    }
+}

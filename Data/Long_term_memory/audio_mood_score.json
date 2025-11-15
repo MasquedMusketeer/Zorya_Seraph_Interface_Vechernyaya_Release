@@ -1,0 +1,179 @@
+{   
+    "structure_version": "0.1.8",
+    "language": "EN",
+    "ALERT": {
+        "359": "ALERT_359.mp3",
+        "360": "ALERT_360.mp3",
+        "362": "ALERT_362.mp3",
+        "366": "ALERT_366.mp3",
+        "370": "ALERT_370.mp3",
+        "375": "ALERT_375.mp3",
+        "384": "ALERT_384.mp3",
+        "387": "ALERT_387.mp3"
+    },
+    "BANTER": {
+        "388": "BANTER_388.mp3",
+        "389": "BANTER_389.mp3",
+        "390": "BANTER_390.mp3",
+        "391": "BANTER_391.mp3",
+        "392": "BANTER_392.mp3",
+        "393": "BANTER_393.mp3",
+        "394": "BANTER_394.mp3",
+        "395": "BANTER_395.mp3",
+        "396": "BANTER_396.mp3",
+        "397": "BANTER_397.mp3",
+        "398": "BANTER_398.mp3",
+        "399": "BANTER_399.mp3",
+        "400": "BANTER_400.mp3"
+    },
+    "BYE": {
+        "151": "BYE_151.mp3",
+        "153": "BYE_153.mp3",
+        "155": "BYE_155.mp3",
+        "156": "BYE_156.mp3",
+        "159": "BYE_159.mp3",
+        "161": "BYE_161.mp3",
+        "170": "BYE_170.mp3",
+        "178": "BYE_178.mp3",
+        "181": "BYE_181.mp3",
+        "186": "BYE_186.mp3",
+        "193": "BYE_193.mp3",
+        "197": "BYE_197.mp3",
+        "199": "BYE_199.mp3",
+        "200": "BYE_200.mp3"
+    },
+    "DEBUG": {
+        "57": "0"
+    },
+    "ERROR": {
+        "230": "ERROR_230.mp3",
+        "231": "ERROR_231.mp3",
+        "233": "ERROR_233.mp3",
+        "234": "ERROR_234.mp3",
+        "235": "ERROR_235.mp3",
+        "237": "ERROR_237.mp3",
+        "240": "ERROR_240.mp3",
+        "242": "ERROR_242.mp3",
+        "245": "ERROR_245.mp3",
+        "247": "ERROR_247.mp3"
+    },
+    "EXECUTION": {
+        "113": "EXECUTION_113.mp3",
+        "115": "EXECUTION_115.mp3",
+        "118": "EXECUTION_118.mp3",
+        "121": "EXECUTION_121.mp3",
+        "124": "EXECUTION_124.mp3",
+        "128": "EXECUTION_128.mp3",
+        "129": "EXECUTION_129.mp3",
+        "133": "EXECUTION_133.mp3",
+        "136": "EXECUTION_136.mp3",
+        "148": "EXECUTION_148.mp3"
+    },
+    "GREETING": {
+        "9": "GREETING_9.mp3",
+        "10": "GREETING_10.mp3",
+        "12": "GREETING_12.mp3",
+        "15": "GREETING_15.mp3",
+        "17": "GREETING_17.mp3",
+        "18": "GREETING_18.mp3",
+        "24": "GREETING_24.mp3",
+        "25": "GREETING_25.mp3",
+        "27": "GREETING_27.mp3",
+        "28": "GREETING_28.mp3",
+        "32": "GREETING_32.mp3",
+        "34": "GREETING_34.mp3",
+        "39": "GREETING_39.mp3",
+        "44": "GREETING_44.mp3",
+        "47": "GREETING_47.mp3",
+        "50": "GREETING_50.mp3",
+        "54": "GREETING_54.mp3",
+        "62": "GREETING_62.mp3",
+        "63": "GREETING_63.mp3",
+        "72": "GREETING_72.mp3",
+        "77": "GREETING_77.mp3",
+        "83": "GREETING_83.mp3",
+        "91": "GREETING_91.mp3",
+        "93": "GREETING_93.mp3",
+        "98": "GREETING_98.mp3",
+        "99": "GREETING_99.mp3"
+    },
+    "HAPPY": {
+        "307": "3",
+        "311": "3"
+    },
+    "JOKE": {
+        "201": "JOKE_201.mp3",
+        "202": "JOKE_202.mp3",
+        "203": "JOKE_203.mp3",
+        "204": "JOKE_204.mp3",
+        "205": "JOKE_205.mp3",
+        "206": "JOKE_206.mp3"
+    },
+    "MILD": {
+        "315": "2",
+        "316": "2"
+    },
+    "PATH": {
+        "402": "PATH_402.mp3",
+        "403": "PATH_403.mp3",
+        "404": "PATH_404.mp3",
+        "405": "PATH_405.mp3",
+        "406": "PATH_406.mp3",
+        "407": "PATH_407.mp3",
+        "408": "PATH_408.mp3",
+        "409": "PATH_409.mp3",
+        "410": "PATH_410.mp3"
+    },
+    "REACTION": {
+        "268": "REACTION_268.mp3",
+        "269": "REACTION_269.mp3",
+        "272": "REACTION_272.mp3",
+        "276": "REACTION_276.mp3",
+        "278": "REACTION_278.mp3",
+        "294": "REACTION_294.mp3"
+    },
+    "SAD": {
+        "331": "1",
+        "332": "1"
+    },
+    "SASS": {
+        "13": "SASS_13.mp3",
+        "23": "SASS_23.mp3",
+        "41": "SASS_41.mp3",
+        "49": "SASS_49.mp3",
+        "59": "SASS_59.mp3",
+        "66": "SASS_66.mp3",
+        "69": "SASS_69.mp3",
+        "80": "SASS_80.mp3",
+        "87": "SASS_87.mp3",
+        "100": "SASS_100.mp3",
+        "141": "SASS_141.mp3",
+        "217": "SASS_217.mp3",
+        "417": "SASS_417.mp3",
+        "418": "SASS_418.mp3"
+    },
+    "SILENT": {
+        "207": "SILENT_207.mp3",
+        "209": "SILENT_209.mp3",
+        "211": "SILENT_211.mp3",
+        "214": "SILENT_214.mp3",
+        "215": "SILENT_215.mp3"
+    },
+    "TALK": {
+        "218": "TALK_218.mp3",
+        "223": "TALK_223.mp3",
+        "224": "TALK_224.mp3",
+        "227": "TALK_227.mp3"
+    },
+    "FIRST_RUN": {
+        "1": "0"
+    },
+    "PCOFF": {
+        "412": "PCOFF_412.mp3",
+        "413": "PCOFF_413.mp3",
+        "416": "PCOFF_416.mp3"
+    },
+    "START_UP":{
+        "0": "0"
+    }
+}

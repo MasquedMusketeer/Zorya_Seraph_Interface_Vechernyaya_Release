@@ -1,0 +1,130 @@
+{
+    "INTENT_SYSTEM_CMD": {
+        "description": "Execute a system command (e.g., open command prompt).",
+        "tokens": [
+            "ACTION.EXECUTE",
+            "OBJECT.CMD"
+        ],
+        "action_module": "command_runner",
+        "action_function": "load_cmd",
+        "parameters": {}
+    },
+    "INTENT_BUILD_BATCH": {
+        "description": "Initiate the batch file creation process.",
+        "tokens": [
+            "ACTION.SET",
+            "OBJECT.FILE.batch"
+        ],
+        "action_module": "batch_builder",
+        "action_function": "batch_orchestrator",
+        "parameters": {}
+    },
+    "INTENT_RUN_BATCH": {
+        "description": "Run the batch file.",
+        "tokens": [
+            "ACTION.EXECUTE",
+            "OBJECT.FILE.batch"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_batch_script",
+        "parameters": {}
+    },
+    "INTENT_OPEN_DISCORD": {
+        "description": "Open the Discord application.",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.discord"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters":"discord"
+    },
+    "INTENT_OPEN_STEAM": {
+        "description": "Open the Steam application.",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.steam"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters":"steam"
+    },
+    "INTENT_OPEN_VSCODE": {
+        "description": "Open the Visual Studio Code application.",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.vscode"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "vscode"
+    },
+    "INTENT_OPEN_VIVALDI": {
+        "description": "Open the Vivaldi browser.",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.vivaldi"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters":"vivaldi"
+    },
+    "INTENT_OPEN_BRAVE": {
+        "description": "Open the Brave browser.",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.brave"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters":"brave"
+    },
+    "INTENT_STOP_ZORYA": {
+        "description": "Shut down Zorya.",
+        "tokens": [
+            "ACTION.CONTROL",
+            "OBJECT.SELF"
+        ],
+        "action_module": "Zorya",
+        "action_function": "shut_down_sequence",
+        "parameters": {}
+    },
+    "INTENT_MUTE_ZORYA": {
+        "description": "Set Zorya to silent mode.",
+        "tokens": [
+            "ACTION.CONTROL.mute"
+        ],
+        "action_module": "audio_play_module",
+        "action_function": "set_talk_flag",
+        "parameters":false
+    },
+    "INTENT_TALK_ZORYA": {
+        "description": "Set Zorya back to talking mode.",
+        "tokens": [
+            "ACTION.CONTROL.unmute"
+        ],
+        "action_module": "audio_play_module",
+        "action_function": "set_talk_flag",
+        "parameters":true
+    },
+    "INTENT_QUERY_STATUS": {
+        "description": "Ask Zorya for its current status (e.g., volume, mode).",
+        "tokens": [
+            "ACTION.QUERY",
+            "OBJECT.SETTING.status"
+        ],
+        "action_module": "Zorya",
+        "action_function": "report_self_status",
+        "parameters": {}
+    },
+    "INTENT_QUERY_SELF": {
+        "description": "Ask a question about Zorya itself.",
+        "tokens": [
+            "ACTION.QUERY",
+            "OBJECT.SELF.zorya"
+        ],
+        "action_module": "Zorya",
+        "action_function": "respond_self_query",
+        "parameters": {}
+    }
+}

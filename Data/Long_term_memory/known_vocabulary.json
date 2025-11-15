@@ -1,0 +1,227 @@
+{
+    "structure_version": "0.1.4",
+    "ACTION": {
+    "CREATE": [
+        "create",
+        "make",
+        "generate",
+        "new",
+        "add"
+    ],
+    "DELETE": [
+        "delete",
+        "remove",
+        "trash",
+        "discard",
+        "clear"
+    ],
+    "EXECUTE": [
+        "run",
+        "execute",
+        "launch",
+        "start",
+        "fire",
+        "call",
+        "pick"
+    ],
+    "QUERY": [
+        "what",
+        "why",
+        "how",
+        "where",
+        "check",
+        "show",
+        "display"
+    ],
+    "SET": [
+        "set",
+        "assign",
+        "define",
+        "register",
+        "configure",
+        "apply",
+        "enter",
+        "change",
+        "adjust",
+        "modify",
+        "update",
+        "build"
+    ],
+    "OPEN": [
+        "open"
+    ],
+    "CONTROL": [
+        "stop",
+        "exit",
+        "quit",
+        "mute",
+        "unmute",
+        "pause",
+        "cancel",
+        "goodbye",
+        "close"
+    ]
+    },
+    "USER_TALKS": {
+    "SMALLTALK": [
+        "hi",
+        "hello",
+        "hey",
+        "yo",
+        "sup"
+    ],
+    "EMOTION": [
+        "sorry",
+        "please",
+        "thanks",
+        "thank",
+        "love",
+        "miss"
+    ]
+    },
+    "COMPLEMENT": {
+        "RANGE": [
+        "between",
+        "from",
+        "to",
+        "until",
+        "above",
+        "below",
+        "less",
+        "more"
+        ],
+        "CONDITIONAL": [
+        "if",
+        "else",
+        "when",
+        "while",
+        "unless"
+        ],
+        "TEMPORAL": [
+        "now",
+        "later",
+        "soon",
+        "after",
+        "before"
+        ],
+        "QUANTITY": [
+        "all",
+        "many",
+        "few",
+        "some",
+        "none"
+        ],
+        "INTENSITY": [
+        "very",
+        "extremely",
+        "slightly",
+        "barely",
+        "totally"
+        ],
+        "MANNER": [
+        "alphabetically",
+        "numerically"
+        ],
+        "CONJUNCTION": [
+        "and",
+        "or",
+        "then"
+    ]
+    },
+    "OBJECT":{
+    "SELF": [
+        "you",
+        "your",
+        "yours",
+        "yourself",
+        "assistant",
+        "zorya",
+        "zsi"
+    ],
+    "CMD": [
+        "command",
+        "cmd",
+        "terminal",
+        "shell",
+        "prompt"
+    ],
+    "FILE": [
+        "file",
+        "document",
+        "batch",
+        "script"
+    ],
+    "APP": [
+        "discord",
+        "app",
+        "application",
+        "program",
+        "exe",
+        "software",
+        "tool",
+        "browser",
+        "brave",
+        "vivaldi",
+        "chrome",
+        "firefox",
+        "edge",
+        "steam",
+        "spotify",
+        "notepad",
+        "calculator",
+        "vscode",
+        "visual studio code"
+    ],
+    "PATH": [
+        "path",
+        "location",
+        "dir",
+        "directory",
+        "folder"
+    ],
+    "SETTING": [
+        "volume",
+        "silent",
+        "quiet",
+        "language",
+        "debug",
+        "mode",
+        "settings",
+        "status"
+    ],
+    "ABSTRACT": [
+        "number",
+        "color",
+        "word",
+        "action",
+        "thing"
+    ],
+    "MEDIA": [
+        "music",
+        "song",
+        "video",
+        "movie",
+        "picture",
+        "image",
+        "playlist"
+    ],
+    "WEB": [
+        "website",
+        "url",
+        "link",
+        "site",
+        "page",
+        "google",
+        "youtube",
+        "github"
+    ],
+    "TIME": [
+        "time",
+        "date",
+        "day",
+        "week",
+        "month",
+        "year"
+    ]
+}
+}

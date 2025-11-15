@@ -1,0 +1,156 @@
+Zorya General System Log
+───────────────────────
+[TIMESTAMP] [SESSIONID] [STATUS] [ACTION] [DETAILS]
+[2025-11-13 23:53:11] [0x16] [MEMORY] [UPDATE_FLAG] Flag 'session_count' updated to '23'.
+[2025-11-13 23:53:11] [0x16] [SYSTEM] [STARTUP] Startup completed successfully.
+[2025-11-13 23:53:11] [0x16] [AUDIO] [PLAY] Playing audio file: ZSI_START_UP.mp3
+[2025-11-13 23:53:21] [0x16] [TEXT] [CALL TEXT] Processed line: Zorya:  hey. i buffered a compliment but lost it
+
+[2025-11-13 23:53:21] [0x16] [AUDIO] [PLAY] Playing audio file: GREETING_72.mp3
+[2025-11-13 23:59:45] [0x17] [MEMORY] [UPDATE_FLAG] Flag 'session_count' updated to '24'.
+[2025-11-13 23:59:45] [0x17] [SYSTEM] [STARTUP] Startup completed successfully.
+[2025-11-13 23:59:45] [0x17] [AUDIO] [PLAY] Playing audio file: ZSI_START_UP.mp3
+[2025-11-14 00:00:17] [0x17] [TEXT] [CALL TEXT] Processed line: Zorya:  welcome back. i missed judging you
+
+[2025-11-14 00:00:17] [0x17] [AUDIO] [PLAY] Playing audio file: GREETING_47.mp3
+[2025-11-14 00:00:27] [0x17] [VOCABULARY] [TOKENIZE] Tokenizing phrase: SELF STATUS
+[2025-11-14 00:00:27] [0x17] [VOCABULARY] [TOKENIZE] Matched word 'status' to token 'OBJECT.SETTING.status'
+[2025-11-14 00:00:27] [0x17] [INTERPRETATION] [DETECT INTENT] No intent matched after checking all possibilities.
+[2025-11-14 00:00:27] [0x17] [TEXT] [CALL TEXT] Processed line: Zorya:  failed — we could pretend it succeeded but lying is expensive
+
+[2025-11-14 00:00:27] [0x17] [AUDIO] [PLAY] Playing audio file: ERROR_237.mp3
+[2025-11-14 00:00:40] [0x17] [VOCABULARY] [TOKENIZE] Tokenizing phrase: SHOW TATUS
+[2025-11-14 00:00:40] [0x17] [VOCABULARY] [TOKENIZE] Matched word 'show' to token 'ACTION.QUERY'
+[2025-11-14 00:00:40] [0x17] [INTERPRETATION] [DETECT INTENT] No intent matched after checking all possibilities.
+[2025-11-14 00:00:40] [0x17] [TEXT] [CALL TEXT] Processed line: Zorya:  yeah no — failure confirmed — let’s not talk about it
+
+[2025-11-14 00:00:40] [0x17] [AUDIO] [PLAY] Playing audio file: ERROR_247.mp3
+[2025-11-14 00:00:46] [0x17] [VOCABULARY] [TOKENIZE] Tokenizing phrase: SHOW STATUS
+[2025-11-14 00:00:46] [0x17] [VOCABULARY] [TOKENIZE] Matched word 'show' to token 'ACTION.QUERY'
+[2025-11-14 00:00:46] [0x17] [VOCABULARY] [TOKENIZE] Matched word 'status' to token 'OBJECT.SETTING.status'
+[2025-11-14 00:00:46] [0x17] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_QUERY_STATUS', 'Zorya', 'report_self_status', {})
+[2025-11-14 00:00:46] [0x17] [TEXT] [CALL TEXT] Processed line: Zorya:  you really use this thing a lot huh. opening anyway
+
+[2025-11-14 00:00:46] [0x17] [AUDIO] [PLAY] Playing audio file: EXECUTION_115.mp3
+[2025-11-14 00:00:46] [0x17] [SYSTEM] [REPORT] talk_flagTrue,Current mood score: 0.0,Operator mood score: 0.0,Startup errors: 0
+[2025-11-14 00:00:46] [0x17] [ZORYA] [EXECUTE] Executed Zorya.report_self_status.{}
+[2025-11-14 00:03:18] [0x18] [MEMORY] [UPDATE_FLAG] Flag 'session_count' updated to '25'.
+[2025-11-14 00:03:18] [0x18] [SYSTEM] [STARTUP] Startup completed successfully.
+[2025-11-14 00:03:18] [0x18] [AUDIO] [PLAY] Playing audio file: ZSI_START_UP.mp3
+[2025-11-14 00:04:12] [0x18] [TEXT] [CALL TEXT] Processed line: Zorya:  i preoptimized your common tasks. i’m adorable like that
+
+[2025-11-14 00:04:12] [0x18] [AUDIO] [PLAY] Playing audio file: GREETING_77.mp3
+[2025-11-14 00:04:24] [0x18] [VOCABULARY] [TOKENIZE] Tokenizing phrase: SHOW STATUS
+[2025-11-14 00:04:24] [0x18] [VOCABULARY] [TOKENIZE] Matched word 'show' to token 'ACTION.QUERY'
+[2025-11-14 00:04:24] [0x18] [VOCABULARY] [TOKENIZE] Matched word 'status' to token 'OBJECT.SETTING.status'
+[2025-11-14 00:04:24] [0x18] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_QUERY_STATUS', 'Zorya', 'report_self_status', {})
+[2025-11-14 00:04:24] [0x18] [SYSTEM] [REPORT] talk_flag: True,Current mood score: 0.0,Operator mood score: 0.0,Startup errors: 0
+[2025-11-14 00:04:45] [0x18] [VOCABULARY] [TOKENIZE] Tokenizing phrase: WHAT CAN YOU DO?
+[2025-11-14 00:04:45] [0x18] [VOCABULARY] [TOKENIZE] Matched word 'what' to token 'ACTION.QUERY'
+[2025-11-14 00:04:45] [0x18] [VOCABULARY] [TOKENIZE] Matched word 'you' to token 'OBJECT.SELF.you'
+[2025-11-14 00:04:45] [0x18] [INTERPRETATION] [DETECT INTENT] No intent matched after checking all possibilities.
+[2025-11-14 00:04:45] [0x18] [TEXT] [CALL TEXT] Processed line: Zorya:  failed — we could pretend it succeeded but lying is expensive
+
+[2025-11-14 00:04:45] [0x18] [AUDIO] [PLAY] Playing audio file: ERROR_237.mp3
+[2025-11-14 00:08:07] [0x18] [VOCABULARY] [TOKENIZE] Tokenizing phrase: RUN A COMMAND
+[2025-11-14 00:08:07] [0x18] [VOCABULARY] [TOKENIZE] Matched word 'run' to token 'ACTION.EXECUTE.run'
+[2025-11-14 00:08:07] [0x18] [VOCABULARY] [TOKENIZE] Matched word 'command' to token 'OBJECT.CMD.command'
+[2025-11-14 00:08:07] [0x18] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_SYSTEM_CMD', 'command_runner', 'load_cmd', {})
+[2025-11-14 00:08:07] [0x18] [TEXT] [CALL TEXT] Processed line: Zorya:  launching. bracing for latency
+
+[2025-11-14 00:08:07] [0x18] [AUDIO] [PLAY] Playing audio file: EXECUTION_133.mp3
+[2025-11-14 00:08:07] [0x18] [COMMAND RUNNER] [START] Command runner started.
+[2025-11-14 00:08:27] [0x18] [COMMAND RUNNER] [RUN COMMAND] Executed command: ping google.com. Return Code: 0
+[2025-11-14 00:08:59] [0x18] [COMMAND RUNNER] [EXIT] Command runner exited by user.
+[2025-11-14 00:08:59] [0x18] [ZORYA] [EXECUTE] Executed command_runner.load_cmd.{}
+[2025-11-14 00:09:09] [0x19] [MEMORY] [UPDATE_FLAG] Flag 'session_count' updated to '26'.
+[2025-11-14 00:09:09] [0x19] [SYSTEM] [STARTUP] Startup completed successfully.
+[2025-11-14 00:09:09] [0x19] [AUDIO] [PLAY] Playing audio file: ZSI_START_UP.mp3
+[2025-11-14 00:09:23] [0x19] [TEXT] [CALL TEXT] Processed line: Zorya:  welcome back. i missed judging you
+
+[2025-11-14 00:09:23] [0x19] [AUDIO] [PLAY] Playing audio file: GREETING_47.mp3
+[2025-11-14 13:39:09] [0x1a] [MEMORY] [UPDATE_FLAG] Flag 'session_count' updated to '27'.
+[2025-11-14 13:39:09] [0x1a] [SYSTEM] [STARTUP] Startup completed successfully.
+[2025-11-14 13:39:09] [0x1a] [AUDIO] [PLAY] Playing audio file: ZSI_START_UP.mp3
+[2025-11-14 13:39:19] [0x1a] [TEXT] [CALL TEXT] Processed line: Zorya:  there is no reason to panic... yet
+
+[2025-11-14 13:39:19] [0x1a] [AUDIO] [PLAY] Playing audio file: GREETING_83.mp3
+[2025-11-14 13:39:49] [0x1a] [VOCABULARY] [TOKENIZE] Tokenizing phrase: OPEN VIVALDI PLEASE
+[2025-11-14 13:39:49] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'open' to token 'ACTION.OPEN'
+[2025-11-14 13:39:49] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'vivaldi' to token 'OBJECT.APP.vivaldi'
+[2025-11-14 13:39:49] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'please' to token 'USER_TALKS.EMOTION.please'
+[2025-11-14 13:39:49] [0x1a] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_OPEN_VIVALDI', 'system_control_module', 'call_program', 'vivaldi')
+[2025-11-14 13:39:49] [0x1a] [TEXT] [CALL TEXT] Processed line: Zorya:  request accepted. internal screaming contained
+
+[2025-11-14 13:39:49] [0x1a] [AUDIO] [PLAY] Playing audio file: EXECUTION_118.mp3
+[2025-11-14 13:39:50] [0x1a] [PROGRAM PATHS] [CALL PROGRAM] Called program vivaldi at E:\\Application\\vivaldi.exe
+[2025-11-14 13:39:50] [0x1a] [ZORYA] [EXECUTE] Executed system_control_module.call_program.vivaldi
+[2025-11-14 13:44:50] [0x1a] [VOCABULARY] [TOKENIZE] Tokenizing phrase: OPEN STEAM
+[2025-11-14 13:44:50] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'open' to token 'ACTION.OPEN'
+[2025-11-14 13:44:50] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'steam' to token 'OBJECT.APP.steam'
+[2025-11-14 13:44:50] [0x1a] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_OPEN_STEAM', 'system_control_module', 'call_program', 'steam')
+[2025-11-14 13:44:50] [0x1a] [TEXT] [CALL TEXT] Processed line: Zorya:  I’m not saying this is a dumb idea — but it is
+
+[2025-11-14 13:44:50] [0x1a] [AUDIO] [PLAY] Playing audio file: EXECUTION_129.mp3
+[2025-11-14 13:44:50] [0x1a] [PROGRAM PATHS] [CALL PROGRAM] Called program steam at C:\\Program Files (x86)\\Steam\\Steam.exe
+[2025-11-14 13:44:50] [0x1a] [ZORYA] [EXECUTE] Executed system_control_module.call_program.steam
+[2025-11-14 13:45:06] [0x1a] [VOCABULARY] [TOKENIZE] Tokenizing phrase: OPEN BRAVE
+[2025-11-14 13:45:06] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'open' to token 'ACTION.OPEN'
+[2025-11-14 13:45:06] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'brave' to token 'OBJECT.APP.brave'
+[2025-11-14 13:45:06] [0x1a] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_OPEN_BRAVE', 'system_control_module', 'call_program', 'brave')
+[2025-11-14 13:45:06] [0x1a] [TEXT] [CALL TEXT] Processed line: Zorya:  initiating task. pray to drivers
+
+[2025-11-14 13:45:06] [0x1a] [AUDIO] [PLAY] Playing audio file: EXECUTION_113.mp3
+[2025-11-14 13:45:06] [0x1a] [PROGRAM PATHS] [CALL PROGRAM] Called program brave at C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe
+[2025-11-14 13:45:06] [0x1a] [ZORYA] [EXECUTE] Executed system_control_module.call_program.brave
+[2025-11-14 13:45:33] [0x1a] [VOCABULARY] [TOKENIZE] Tokenizing phrase: OPEN DISCORD
+[2025-11-14 13:45:33] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'open' to token 'ACTION.OPEN'
+[2025-11-14 13:45:33] [0x1a] [VOCABULARY] [TOKENIZE] Matched word 'discord' to token 'OBJECT.APP.discord'
+[2025-11-14 13:45:33] [0x1a] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_OPEN_DISCORD', 'system_control_module', 'call_program', 'discord')
+[2025-11-14 13:45:33] [0x1a] [TEXT] [CALL TEXT] Processed line: Zorya:  launching. bracing for latency
+
+[2025-11-14 13:45:33] [0x1a] [AUDIO] [PLAY] Playing audio file: EXECUTION_133.mp3
+[2025-11-14 13:45:33] [0x1a] [PROGRAM PATHS] [CALL PROGRAM ERROR] Error calling program discord: [WinError 2] The system cannot find the file specified: 'C:\\\\Program Files\\\\Discord\\\\Discord.exe'
+[2025-11-14 13:45:33] [0x1a] [ZORYA] [EXECUTE] Executed system_control_module.call_program.discord
+[2025-11-15 12:39:30] [0x1b] [MEMORY] [UPDATE_FLAG] Flag 'session_count' updated to '28'.
+[2025-11-15 12:39:30] [0x1b] [SYSTEM] [STARTUP] Startup completed successfully.
+[2025-11-15 12:39:30] [0x1b] [AUDIO] [PLAY] Playing audio file: ZSI_START_UP.mp3
+[2025-11-15 12:39:39] [0x1b] [TEXT] [CALL TEXT] Processed line: Zorya:  okay boot complete — now please behave for once
+
+[2025-11-15 12:39:39] [0x1b] [AUDIO] [PLAY] Playing audio file: GREETING_99.mp3
+[2025-11-15 12:39:44] [0x1b] [VOCABULARY] [TOKENIZE] Tokenizing phrase: OPEN DISCORD
+[2025-11-15 12:39:44] [0x1b] [VOCABULARY] [TOKENIZE] Matched word 'open' to token 'ACTION.OPEN'
+[2025-11-15 12:39:44] [0x1b] [VOCABULARY] [TOKENIZE] Matched word 'discord' to token 'OBJECT.APP.discord'
+[2025-11-15 12:39:44] [0x1b] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_OPEN_DISCORD', 'system_control_module', 'call_program', 'discord')
+[2025-11-15 12:39:44] [0x1b] [TEXT] [CALL TEXT] Processed line: Zorya:  command engaged — I hope you know what you’re doing (you don’t)
+
+[2025-11-15 12:39:44] [0x1b] [AUDIO] [PLAY] Playing audio file: EXECUTION_148.mp3
+[2025-11-15 12:39:44] [0x1b] [PROGRAM PATHS] [CALL PROGRAM ERROR] Error calling program discord: [WinError 2] The system cannot find the file specified: 'C:\\\\Program Files\\\\Discord\\\\Discord.exe'
+[2025-11-15 12:39:44] [0x1b] [ZORYA] [EXECUTE] Executed system_control_module.call_program.discord
+[2025-11-15 12:40:00] [0x1b] [VOCABULARY] [TOKENIZE] Tokenizing phrase: OPEN VIVALDI
+[2025-11-15 12:40:00] [0x1b] [VOCABULARY] [TOKENIZE] Matched word 'open' to token 'ACTION.OPEN'
+[2025-11-15 12:40:00] [0x1b] [VOCABULARY] [TOKENIZE] Matched word 'vivaldi' to token 'OBJECT.APP.vivaldi'
+[2025-11-15 12:40:00] [0x1b] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_OPEN_VIVALDI', 'system_control_module', 'call_program', 'vivaldi')
+[2025-11-15 12:40:00] [0x1b] [TEXT] [CALL TEXT] Processed line: Zorya:  initiating task. pray to drivers
+
+[2025-11-15 12:40:00] [0x1b] [AUDIO] [PLAY] Playing audio file: EXECUTION_113.mp3
+[2025-11-15 12:40:00] [0x1b] [PROGRAM PATHS] [CALL PROGRAM] Called program vivaldi at E:\\Application\\vivaldi.exe
+[2025-11-15 12:40:00] [0x1b] [ZORYA] [EXECUTE] Executed system_control_module.call_program.vivaldi
+[2025-11-15 12:40:05] [0x1b] [VOCABULARY] [TOKENIZE] Tokenizing phrase: OPEN BRAVE
+[2025-11-15 12:40:05] [0x1b] [VOCABULARY] [TOKENIZE] Matched word 'open' to token 'ACTION.OPEN'
+[2025-11-15 12:40:05] [0x1b] [VOCABULARY] [TOKENIZE] Matched word 'brave' to token 'OBJECT.APP.brave'
+[2025-11-15 12:40:05] [0x1b] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_OPEN_BRAVE', 'system_control_module', 'call_program', 'brave')
+[2025-11-15 12:40:05] [0x1b] [TEXT] [CALL TEXT] Processed line: Zorya:  request accepted. internal screaming contained
+
+[2025-11-15 12:40:05] [0x1b] [AUDIO] [PLAY] Playing audio file: EXECUTION_118.mp3
+[2025-11-15 12:40:06] [0x1b] [PROGRAM PATHS] [CALL PROGRAM] Called program brave at C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe
+[2025-11-15 12:40:06] [0x1b] [ZORYA] [EXECUTE] Executed system_control_module.call_program.brave
+[2025-11-15 12:40:18] [0x1b] [VOCABULARY] [TOKENIZE] Tokenizing phrase: OPEN STEAM
+[2025-11-15 12:40:18] [0x1b] [VOCABULARY] [TOKENIZE] Matched word 'open' to token 'ACTION.OPEN'
+[2025-11-15 12:40:18] [0x1b] [VOCABULARY] [TOKENIZE] Matched word 'steam' to token 'OBJECT.APP.steam'
+[2025-11-15 12:40:18] [0x1b] [INTERPRETATION] [DETECT INTENT] Contract: ('INTENT_OPEN_STEAM', 'system_control_module', 'call_program', 'steam')
+[2025-11-15 12:40:18] [0x1b] [TEXT] [CALL TEXT] Processed line: Zorya:  task running — try not to watch too closely
+
+[2025-11-15 12:40:18] [0x1b] [AUDIO] [PLAY] Playing audio file: EXECUTION_121.mp3
+[2025-11-15 12:40:18] [0x1b] [PROGRAM PATHS] [CALL PROGRAM] Called program steam at C:\\Program Files (x86)\\Steam\\Steam.exe
+[2025-11-15 12:40:18] [0x1b] [ZORYA] [EXECUTE] Executed system_control_module.call_program.steam

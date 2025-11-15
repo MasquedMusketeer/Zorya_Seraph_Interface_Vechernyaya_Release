@@ -1,0 +1,14 @@
+{
+    "structure_version": "0.1.0",
+    "operator_mood_score": 0.0,
+    "operator_name": "Operator",
+    "self_mood_score": 0.0,
+    "first_time": true,
+    "last_hour_uptime": 0,
+    "correct_power_off": true,
+    "last_phrase_type": "",
+    "last_phrase_index": 0,
+    "session_count": 0,
+    "apps_expected_at_start": [],
+    "apps_recently_used": []
+}
