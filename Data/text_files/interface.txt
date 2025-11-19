@@ -11,7 +11,7 @@
                                     │          companion for your pc.          │
                                     │                                          │
                                     │             Ver 0.3.6 Alpha              │
-                                    │            Utrennyaya release            │
+                                    │           Vechernyaya release            │
                                     │                                          │
                                     │Mendoukusai ByteLabs   All Rights Reserved│
                                     └──────────────────────────────────────────┘
