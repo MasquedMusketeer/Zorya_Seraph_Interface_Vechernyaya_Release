@@ -23,7 +23,16 @@ def flag_return(flag_name):
 
 def flag_update(flag_name, value):
     global flags
-    flags[flag_name] = value
-    with open(json_path, 'w', encoding='utf-8') as flag_dict:
-        json.dump(flags, flag_dict, indent=4)
-    log.data_collection("MEMORY", "UPDATE_FLAG", f"Flag '{flag_name}' updated to '{value}'.")
+    try:
+        if isinstance(flags[flag_name], list):
+            flags[flag_name].append(value)
+            with open(json_path, 'w', encoding='utf-8') as flag_dict:
+                json.dump(flags, flag_dict, indent=4)
+            log.data_collection("MEMORY", "UPDATE_FLAG", f"Flag '{flag_name}' updated to '{value}'.")
+        else:
+            flags[flag_name] = value
+            with open(json_path, 'w', encoding='utf-8') as flag_dict:
+                json.dump(flags, flag_dict, indent=4)
+            log.data_collection("MEMORY", "UPDATE_FLAG", f"Flag '{flag_name}' updated to '{value}'.")
+    except Exception as e:
+        log.data_collection("MEMORY", "UPDATE_FLAG", f"Error updating flag '{flag_name}': {e}")

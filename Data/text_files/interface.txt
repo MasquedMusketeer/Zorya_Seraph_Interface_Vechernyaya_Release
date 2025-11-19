@@ -10,8 +10,8 @@
                                     │       Virtual assistant and banter       │
                                     │          companion for your pc.          │
                                     │                                          │
-                                    │             Ver 0.2.1 Alpha              │
-                                    │           Vechernyaya release            │
+                                    │             Ver 0.3.6 Alpha              │
+                                    │            Utrennyaya release            │
                                     │                                          │
                                     │Mendoukusai ByteLabs   All Rights Reserved│
                                     └──────────────────────────────────────────┘

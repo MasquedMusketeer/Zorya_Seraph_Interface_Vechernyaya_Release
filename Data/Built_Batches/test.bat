@@ -1,2 +1,0 @@
-p:
-mkdir test successfull

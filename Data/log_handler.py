@@ -28,6 +28,40 @@ def session_setter(s_id: str):
 def sessionID_return():
     global sessionID
     return sessionID
+
+def show_recent_logs():
+    recent_log = []
+    log_file_path = os.path.join(_log_path, "general_system_log.txt")
+    with open(log_file_path, "r", encoding="utf-8") as log_file:
+        log_content = log_file.readlines()
+        for line in log_content[-20:]:
+            recent_log.append(line.strip("\n"))
+    return recent_log
+
+def log_clean():
+    log_header = [
+        "Zorya General System Log",
+        "──────────────────────────────────────────────────────────────────────────────────────────────────────────────",
+        "[TIMESTAMP] [SESSIONID] [STATUS] [ACTION] [DETAILS]"
+    ]
+    log_file_path = os.path.join(_log_path, "general_system_log.txt")
+    try:
+        with open(log_file_path, "w", encoding="utf-8") as log_file:
+            for line in log_header:
+                log_file.write(line + "\n")
+    except Exception as e:
+        print(f"Error cleaning log: {e}")
+        
+def count_log_lines():
+    log_file_path = os.path.join(_log_path, "general_system_log.txt")
+    try:
+        with open(log_file_path, "r", encoding="utf-8") as log_file:
+            return sum(1 for _ in log_file)
+    except Exception as e:
+        data_collection("LOG", "COUNT LOG LINES", f"Error counting log lines: {e}")
+        return 0
+        
+
 #--------------------------------------------------------------------DO NOT USE, WORK IN PROGRESS   
 def log_analyzer():
     log_file_path = os.path.join(_log_path, "general_system_log.txt")

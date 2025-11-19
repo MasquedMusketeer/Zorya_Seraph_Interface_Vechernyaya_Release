@@ -1,5 +1,5 @@
 {
-    "INTENT_SYSTEM_CMD": {
+    "INTENT_INTERNAL_CMD": {
         "description": "Execute a system command (e.g., open command prompt).",
         "tokens": [
             "ACTION.EXECUTE",
@@ -9,10 +9,20 @@
         "action_function": "load_cmd",
         "parameters": {}
     },
+    "INTENT_EXTERNAL_CMD": {
+        "description": "Open a new cmd window.",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.cmd"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "cmd"
+    },
     "INTENT_BUILD_BATCH": {
         "description": "Initiate the batch file creation process.",
         "tokens": [
-            "ACTION.SET",
+            "ACTION.CREATE",
             "OBJECT.FILE.batch"
         ],
         "action_module": "batch_builder",
@@ -29,15 +39,35 @@
         "action_function": "call_batch_script",
         "parameters": {}
     },
-    "INTENT_OPEN_DISCORD": {
-        "description": "Open the Discord application.",
+    "INTENT_BUILD_ROUTINE": {
+        "description": "Initiate the routine creation process.",
         "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.discord"
+            "ACTION.CREATE",
+            "OBJECT.SETTING.routine"
+        ],
+        "action_module": "routine_builder_module",
+        "action_function": "build_routine",
+        "parameters": "usr"
+    },
+    "INTENT_SET_FOLDER_PATH": {
+        "description": "Set a folder path.",
+        "tokens": [
+            "ACTION.SET",
+            "OBJECT.FOLDER.folder"
         ],
         "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters":"discord"
+        "action_function": "set_folder_path",
+        "parameters": ""
+    },
+    "INTENT_SET_PROGRAM_PATH": {
+        "description": "Set a folder path.",
+        "tokens": [
+            "ACTION.SET",
+            "OBJECT.APP.program"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "set_program_path",
+        "parameters": ""
     },
     "INTENT_OPEN_STEAM": {
         "description": "Open the Steam application.",
@@ -47,17 +77,7 @@
         ],
         "action_module": "system_control_module",
         "action_function": "call_program",
-        "parameters":"steam"
-    },
-    "INTENT_OPEN_VSCODE": {
-        "description": "Open the Visual Studio Code application.",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.vscode"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "vscode"
+        "parameters": "steam"
     },
     "INTENT_OPEN_VIVALDI": {
         "description": "Open the Vivaldi browser.",
@@ -67,7 +87,7 @@
         ],
         "action_module": "system_control_module",
         "action_function": "call_program",
-        "parameters":"vivaldi"
+        "parameters": "vivaldi"
     },
     "INTENT_OPEN_BRAVE": {
         "description": "Open the Brave browser.",
@@ -77,12 +97,12 @@
         ],
         "action_module": "system_control_module",
         "action_function": "call_program",
-        "parameters":"brave"
+        "parameters": "brave"
     },
     "INTENT_STOP_ZORYA": {
         "description": "Shut down Zorya.",
         "tokens": [
-            "ACTION.CONTROL",
+            "ACTION.CLOSE",
             "OBJECT.SELF"
         ],
         "action_module": "Zorya",
@@ -96,7 +116,7 @@
         ],
         "action_module": "audio_play_module",
         "action_function": "set_talk_flag",
-        "parameters":false
+        "parameters": false
     },
     "INTENT_TALK_ZORYA": {
         "description": "Set Zorya back to talking mode.",
@@ -105,7 +125,7 @@
         ],
         "action_module": "audio_play_module",
         "action_function": "set_talk_flag",
-        "parameters":true
+        "parameters": true
     },
     "INTENT_QUERY_STATUS": {
         "description": "Ask Zorya for its current status (e.g., volume, mode).",
@@ -118,13 +138,209 @@
         "parameters": {}
     },
     "INTENT_QUERY_SELF": {
-        "description": "Ask a question about Zorya itself.",
+        "description": "Ask how Zorya is.",
         "tokens": [
-            "ACTION.QUERY",
-            "OBJECT.SELF.zorya"
+            "ACTION.QUERY.how",
+            "OBJECT.SELF",
+            "OBJECT.TIME.today"
         ],
         "action_module": "Zorya",
         "action_function": "respond_self_query",
         "parameters": {}
+    },
+    "INTENT_QUERY_FEATURES": {
+        "description": "Ask Zorya about its features.",
+        "tokens": [
+            "ACTION.QUERY.what",
+            "OBJECT.SELF",
+            "ACTION.EXECUTE.do"
+        ],
+        "action_module": "Zorya",
+        "action_function": "respond_self_features",
+        "parameters": {}
+    },
+    "INTENT_QUERY_TIME": {
+        "description": "Ask Zorya about the current time.",
+        "tokens": [
+            "ACTION.QUERY.what",
+            "OBJECT.TIME.time"
+        ],
+        "action_module": "Zorya",
+        "action_function": "respond_time_query",
+        "parameters": {}
+    },
+    "INTENT_OPEN_DOCUMENTS": {
+        "description": "open the documents folder",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.PATH.documents"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "open_specific_directory",
+        "parameters": "documents"
+    },
+    "INTENT_OPEN_NOITA_PROXY": {
+        "description": "open the app noita_proxy",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.noita_proxy"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "noita_proxy"
+    },
+    "INTENT_OPEN_FLUFFY": {
+        "description": "open the app fluffy",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.fluffy"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "fluffy"
+    },
+    "INTENT_UPDATE_SELF": {
+        "description": "update self intent mapping on user request",
+        "tokens": [
+            "ACTION.SYSTEM.update",
+            "OBJECT.SELF"
+        ],
+        "action_module": "Zorya",
+        "action_function": "update_self_intent_mapping",
+        "parameters": ""
+    },
+    "INTENT_REPORT_SELF_INTENT": {
+        "description": "reports how many intent zorya currently has",
+        "tokens": [
+            "ACTION.QUERY.how",
+            "COMPLEMENT.QUANTITY.many",
+            "OBJECT.SELF"
+        ],
+        "action_module": "Zorya",
+        "action_function": "self_query_intent_report",
+        "parameters": ""
+    },
+    "INTENT_REPORT_SELF_RECENT_LOGS": {
+        "description": "reports the last 10 lines of the log file",
+        "tokens": [
+            "ACTION.QUERY.show",
+            "OBJECT.LOG"
+        ],
+        "action_module": "Zorya",
+        "action_function": "self_recent_log_report",
+        "parameters": ""
+    },
+    "INTENT_FORCE_KILL_PROGRAM": {
+        "description": "kill a program without opening task manager",
+        "tokens": [
+            "ACTION.CONTROL.kill",
+            "OBJECT.APP.program"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "force_close_program",
+        "parameters": ""
+    },
+    "INTENT_OPEN_SHAREX": {
+        "description": "open the app sharex",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.sharex"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "sharex"
+    },
+    "INTENT_OPEN_PROTONVPN": {
+        "description": "open the app protonvpn",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.protonvpn"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "protonvpn"
+    },
+    "INTENT_OPEN_VORTEX": {
+        "description": "open the app vortex",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.vortex"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "vortex"
+    },
+    "INTENT_OPEN_PATO": {
+        "description": "open the app pato",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.pato"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "pato"
+    },
+    "INTENT_OPEN_DISCORD": {
+        "description": "open the app discord",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.discord"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "discord"
+    },
+    "INTENT_OPEN_VSCODE": {
+        "description": "open the app vscode",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.vscode"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "vscode"
+    },
+    "INTENT_OPEN_SKSE": {
+        "description": "open the app skse",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.skse"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "skse"
+    },
+    "INTENT_RUN_PROTOCOL_MATRIX": {
+        "description": "???????????????",
+        "tokens": [
+            "ACTION.EXECUTE.run",
+            "OBJECT.SETTING.protocol",
+            "OBJECT.ABSTRACT.matrix"
+        ],
+        "action_module": "Zorya",
+        "action_function": "protocol_matrix",
+        "parameters": ""
+    },
+    "INTENT_SET_NEW_STARTUP_APP": {
+        "description": "setting new app to open at startup",
+        "tokens": [
+            "ACTION.SET.set",
+            "ACTION.CREATE.new",
+            "OBJECT.SYSTEM.startup",
+            "OBJECT.APP.app"
+        ],
+        "action_module": "Zorya",
+        "action_function": "set_new_startup_app",
+        "parameters": ""
+    },
+    "INTENT_OPEN_DDO": {
+        "description": "open the app ddo",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.ddo"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "ddo"
     }
 }

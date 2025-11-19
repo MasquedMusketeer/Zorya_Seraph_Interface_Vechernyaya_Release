@@ -19,9 +19,10 @@ def clean_text(line):
     big_text = []
     global text_buffer
     processing_line = text_buffer[line]
-    big_text.append("Zorya: ")
     if "/" in processing_line:
         parts = processing_line.split("/") 
+        big_text.append("MULTILINE")
+        big_text.append("Zorya: ")
         for part in parts:
             part = re.sub(r'^\s*\[?\d+\]?\s*[\.\-\)\/:]?\s*', '', part)
             big_text.append(part)
@@ -32,6 +33,6 @@ def clean_text(line):
         for part in parts:
             part = re.sub(r'^\s*\[?\d+\]?\s*[\.\-\)\/:]?\s*', '', part)
             small_text += part
-        log.data_collection("TEXT", "CALL TEXT", f"Processed line: {small_text}")
+        log.data_collection("TEXT", "CALL TEXT", f"Processed line: {small_text.strip("\n")}")
         return small_text
     
