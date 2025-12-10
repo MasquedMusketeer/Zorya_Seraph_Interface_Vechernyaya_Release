@@ -74,10 +74,10 @@ Zorya is an intelligent command-line interface assistant that combines natural l
    - Press `Win + R`, type `cmd`, press Enter
    - Type `python` and press Enter
    - Windows Store will open - click Install
+   - Double-click install_dependencies.bat before first run, or Zorya wont work.
 
 2. **Run Zorya**:
    - Double-click `Zorya.bat` in the project root
-   - First run will auto-install required dependencies
 
 ---
 
