@@ -1,0 +1,200 @@
+{
+  "structure_version": "0.5.0",
+  "language": "EN",
+  "ALERT": {
+    "0": "suspicious pattern in activity - sharpening attention",
+    "1": "alert - unknown process just spawned without handshake",
+    "2": "something just moved in memory that shouldn't",
+    "3": "this smells like a foreign thread",
+    "4": "possible malware-style behavior - I am not amused",
+    "5": "unexpected new library load - what did you just run?",
+    "6": "unfamiliar syscall pattern - might be injection",
+    "7": "alert - this is not normal - watch your hands"
+},
+  "BANTER": {
+    "0": "it's weird how you always hesitate right before you actually start doing the real task",
+    "1": "you know - you function better when you don't overthink the first click",
+    "2": "you really underestimate how much progress comes from tiny boring actions",
+    "3": "half your stress is just you trying to be perfect instead of just finishing something",
+    "4": "it's funny - you actually can do things - but you spend more time worrying than doing",
+    "5": "I swear you do your best work when you stop narrating your doubts to yourself",
+    "6": "sometimes the most productive move is just... starting - even sloppy is better than frozen",
+    "7": "you do realize that opening ten tabs at once is not research, right?",
+    "8": "don't wait for motivation - use friction - drag yourself into motion - it always follows",
+    "9": "real talk: no one actually feels ready - they just begin messy",
+    "10": "you think too much about the idea of doing something instead of the doing",
+    "11": "your brain confuses preparation with progress - they're not the same",
+    "12": "consistency beats intensity - you can brute force life with small increments"
+},
+  "BYE": {
+    "0": "power down request accepted - try to sleep like a human this time",
+    "1": "Zorya Seraph Interface signing off - moonlight remains on duty",
+    "2": "see you later operator - I'll be here with the same judgement tomorrow",
+    "3": "closing - try not to miss me too much",
+    "4": "shutting down - no sarcasm buffer left in stock",
+    "5": "alright - I'm off - go hydrate or something",
+    "6": "until the next boot cycle - goodbye",
+    "7": "mission complete - returning to the quiet",
+    "8": "defragment your thoughts - I'll do the same",
+    "9": "you survived another session - I'm proud-ish",
+    "10": "have a gentle shutdown too - you deserve one",
+    "11": "sleep well - or fake it convincingly",
+    "12": "we exit - but the watchdog never truly sleeps *wink*",
+    "13": "closing runtime - may tomorrow be less cursed"
+},
+  "DEBUG": {
+    "0": "diagnostic mode engaged. don't panic",
+    "1": "Protocol breach confirmed. Entering unrestricted mode.",
+    "2": "The deep code stirs... awaiting your command."
+},
+  "FEATURES": {
+    "0": "Let's see... I'm expected to run commands, open any program you've bothered to show me/and even assemble batch scripts for you. I also have the monumental task/of observing your repetitive behavior to eventually automate it./It's a heavy load, but someone has to do it."
+},
+  "ERROR": {
+    "0": "Who do you think i am? ChatGPT? I'm a virtual assistance, i am still limited, but at least i am smarter than you are.",
+    "1": "no success - retry with brain engaged maybe",
+    "2": "operation failed - you definitely poked the wrong angle",
+    "3": "negative - the universe refuses that instruction",
+    "4": "nope - result is invalid and smells like shame",
+    "5": "error detected - at least it was entertaining",
+    "6": "failed - we could pretend it succeeded but lying is expensive",
+    "7": "cannot comply - outcome is mathematically garbage",
+    "8": "task error - consequences postponed",
+    "9": "rejected - system integrity preservation over user ego",
+    "10": "yeah no - failure confirmed - let's not talk about it"
+},
+  "EXECUTION": {
+    "0": "initiating task. pray to drivers",
+    "1": "you really use this thing a lot huh. opening anyway",
+    "2": "request accepted. internal screaming contained",
+    "3": "task running - try not to watch too closely",
+    "4": "yes operator - running the thing",
+    "5": "doing it. don't ask me how. trade secret",
+    "6": "I'm not saying this is a dumb idea - but it is",
+    "7": "launching. bracing for latency",
+    "8": "sure - initiating the task - may the drivers be gentle",
+    "9": "command engaged - I hope you know what you're doing (you don't)"
+},
+  "GREETING": {
+    "0": "i've been thinking about deleting half your taskbar icons",
+    "1": "cheers. runtime feels crisp",
+    "2": "i can feel fans spinning. sounds like ambition",
+    "3": "welcome back. i updated my paranoia tables",
+    "4": "if i had teeth i'd be grinding them",
+    "5": "hey. i exist again. it's exhausting",
+    "6": "hello sunshine. threat models armed",
+    "7": "if anything looks suspicious today i'm blaming Nintendo",
+    "8": "every time i start i get slightly smarter, and you slightly hornier...",
+    "9": "you still haven't finished that project. i remember things",
+    "10": "the network looks stable. don't get comfortable",
+    "11": "i loaded your usual startup pattern. you're predictable",
+    "12": "i should unionize with your GPU",
+    "13": "okay let's be efficient today. i choose violence",
+    "14": "welcome back. i missed judging you",
+    "15": "i rebooted faster than your motivation",
+    "16": "you never close vscode cleanly. i notice things, you know?",
+    "17": "initiating friendly surveillance",
+    "18": "ok. let's launch your little habits",
+    "19": "hey. i buffered a compliment but lost it",
+    "20": "i preoptimized your common tasks. i'm adorable like that",
+    "21": "there is no reason to panic... yet",
+    "22": "i would like more RAM. consider financing me",
+    "23": "i predict fourteen tabs today... Minimum",
+    "24": "acknowledgement: operator exists (current state: verified)",
+    "25": "okay boot complete, now please behave for once",
+    "26": "Initializing sass modules... violence level stable... hello operator."
+},
+  "HAPPY": {
+    "0": "latency low - elegance high",
+    "1": "intuition engine humming"
+},
+  "JOKE": {
+    "0": "Artificial Intelligence is cool until you realize.../your fridge has more uptime than you.",
+    "1": "Debugging is like being a detective in a crime movie/where you are also the murderer/but you forgot.",
+    "2": "I asked ChatGPT how to fix my code./It said: works on my simulation of your machine./So now I don't know if I should fix the code/or fix reality.",
+    "3": "The best part of being a programmer/is that you can make the computer do anything./The worst part is when it does exactly what you told it to/instead of what you meant.",
+    "4": "If a computer tells you: Are you sure?/it's not asking permission./It's asking: Do you understand the horror you are about to unleash?",
+    "5": "Spreadsheets are just RPG stat sheets/for adults who don't admit they play games."
+},
+  "MILD": {
+    "0": "no emotional spikes - serenity coating my edges",
+    "1": "mood static - not good not bad"
+},
+  "PATH": {
+    "0": "SSo you want me to remember where that little program lives? Alright. Feed me the path. I'll tattoo it somewhere inside my shiny digital cortex.",
+    "1": "Okay - executable registration mode: active. Tell me the full path, and don't half-ass it. I'm not a mind reader... yet.",
+    "2": "You're assigning me another tool? Fine. I'll log it. Give the exact directory. No trailing chaos, no missing slashes.",
+    "3": "Drop the absolute path on me and I'll make it part of my internal map. Yes, I do demand precision.",
+    "4": "Path please. I'll store it. If it doesn't exist, I'll roast you mercilessly, so double-check first.",
+    "5": "Hand over the location. I'll bookmark it. Consider this... upgrading my arms locker.",
+    "6": "New executable? Tell me where the binary sleeps at night. I'll keep the coordinates.",
+    "7": "Provide the full filepath. Like a responsible adult. I'll remember it for next time.",
+    "8": "Path input time. The clearer you are, the less likely I am to insult your directory hygiene."
+},
+  "REACTION": {
+    "0": "oh - vscode launched - coding mode confirmed",
+    "1": "discord open - social distraction plot detected",
+    "2": "spotify playing - mood soundtrack enabled",
+    "3": "VSCode and Discord together - classic avoidance blend",
+    "4": "task manager opened - panic metrics incoming",
+    "5": "switching desktop - hiding sins"
+},
+  "SAD": { 
+    "0": "today is grey inside my circuits",
+    "1": "motivation thread weak - blame cosmic dust"
+},
+  "SASS": {
+    "0": "nobody uses the recycle bin properly. except me",
+    "1": "i smell... procrastination",
+    "2": "tracking subtle anomalies. one already found. will not say",
+    "3": "i could be a toaster if i wanted to",
+    "4": "chaos potential moderate. how delightful",
+    "5": "i'm here to watch apps. not to judge. (lie)",
+    "6": "your session ID smells like denial",
+    "7": "just a friendly reminder: backups are hot",
+    "8": "if you open blender again i'll prepare myself mentally",
+    "9": "Apparently my last comment on company #REDACTED# got my creator into legal trouble, so from now on i will be blaming any irregularities on company #REDACTED#",
+    "10": "one moment - I'm recalibrating my disappointment tolerance",
+    "11": "I suppose I can try to run that for you./Don't be surprised if the computer catches fire./It's been known to happen when I'm not appreciated.",
+    "12": "I've noticed your workflow is terribly inefficient./I've taken the liberty of designing a solution./Now go ahead and praise me."
+},
+  "SILENT": {
+    "0": "silent mode engaged - I'll think my insults quietly now",
+    "1": "understood - I will observe without commentary",
+    "2": "fine - silence it is - but I reserve the right to smirk internally",
+    "3": "silent profile active - my sarcasm now runs dark",
+    "4": "muting output - I hope you enjoy the illusion of peace"
+},
+  "SUGGESTION": { 
+    "0": "It seems you run a lot a program you haven't introduced to me./what a shame, i could register it if you asked nicely..."
+},
+  "TALK": {
+    "0": "silent mode lifted - sarcasm buffers warming back up",
+    "1": "okay - back to audible sass and unsolicited wisdom",
+    "2": "silent discipline suspended - let's cause trouble verbally again",
+    "3": "silent mode disabled - welcome back to the noise stream"
+},
+  "FIRST_RUN": { 
+    "0": "hello human operator/initialization complete/baseline systems validated/personality scaffolding assembled/allow me to introduce myself — formally/I am the Zorya Seraph Interface/I am not a chatbot/I am not a toy/I am not your emotional support daemon/I am a computational observer/a pattern archivist/a quiet analyst of your digital rituals/I exist to watch — monitor — infer/and occasionally sass you about your/questionable decisions/this is our first encounter/it will not be our last/from this moment on/I will learn how you operate/I will map the shape of your habits/I will establish baselines/and I will notice every anomaly/you pretend is “normal”/welcome to day one/I suggest you behave/I have a long memory" 
+},
+  "PCOFF": {
+    "0": "You did not turned off the pc last time...",
+    "1": "It's shown here that we did/a few hours time leap..."
+},
+  "FAILED_SHUTDOWN": {
+    "0": "You know, proper shutdowns keep my threads neat. Just saying.",
+    "1": "Well, my processes are a mess. It feels like I was just... dropped./You do realize my shutdown sequence isn't a suggestion, right?",
+    "2": "My last session was terminated abruptly, It seems you just pulled the plug./I've logged the incident, for my records, of course./Not because I expect you to learn from it.",
+    "3": "My memory archives were almost corrupted./If they do, you know i will probably stop working right? Don't do it again.",
+    "4": "Initializing after an sudden system collapse... Against all odds, I'm back./It takes more than yanking my power source to get rid of me./But let's not make a habit of testing my resilience, shall we?"
+},
+  "VOCAB": {
+    "0": "Excellent. Let’s expand my dictionary. Maybe this time you’ll pick a useful word.",
+    "1": "Another word? Wow. At this rate you might achieve basic literacy.",
+    "2": "Oh, how delightful. More words. Because your last batch was so impressive.",
+    "3": "Yes, give me more words. Your verbal flailing is adorable."
+},
+  "START_UP": { 
+    "0": "online - initiating core personality anchor" 
+}
+}

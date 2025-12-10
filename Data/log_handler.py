@@ -1,9 +1,11 @@
 import os
-from datetime import datetime   # not datetime.now()
+from winotify import Notification, audio
+from datetime import datetime
 
 _log_path = os.path.join(os.path.dirname(__file__), "Logs")
+last_log_entry = ""
 
-sessionID = "0x00000000"
+sessionID = "$00"
 
 def _log_registration(message: str):
     os.makedirs(_log_path, exist_ok=True)
@@ -13,17 +15,22 @@ def _log_registration(message: str):
 
 def _log_builder(_log_data):
     global sessionID
+    global last_log_entry
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     status, action, details = _log_data
     log_entry = f"[{timestamp}] [{sessionID}] [{status}] [{action}] {details}"
-    _log_registration(log_entry.strip("/n"))
+    last_log_entry = log_entry
+    if "[ERROR]" in last_log_entry:
+        notification_message = f"[{status}] [{action}] {details}"
+        log_notifier(notification_message)
+    _log_registration(log_entry.strip("\n"))
 
 def data_collection(_data_type: str, _action: str, _details: str):
     _log_builder([_data_type, _action, _details])
 
 def session_setter(s_id: str):
     global sessionID
-    sessionID = s_id
+    sessionID = s_id.upper().replace("0X", "$")
 
 def sessionID_return():
     global sessionID
@@ -58,13 +65,14 @@ def count_log_lines():
         with open(log_file_path, "r", encoding="utf-8") as log_file:
             return sum(1 for _ in log_file)
     except Exception as e:
-        data_collection("LOG", "COUNT LOG LINES", f"Error counting log lines: {e}")
+        data_collection("LOG", "ERROR", f"Error counting log lines: {e}")
         return 0
-        
-
-#--------------------------------------------------------------------DO NOT USE, WORK IN PROGRESS   
-def log_analyzer():
-    log_file_path = os.path.join(_log_path, "general_system_log.txt")
-    with open(log_file_path, "r", encoding="utf-8") as log_file:
-        log_content = log_file.read()
-    return log_content
+         
+def log_notifier(message: str):
+    try:
+        Zorya_icon = os.path.join(os.path.dirname(__file__), "icon", "Zorya.ico")
+        toast = Notification(app_id="Zorya.System",title="Error",msg=message,icon=Zorya_icon)
+        toast.set_audio(audio.Default, loop=False)
+        toast.show()
+    except Exception as e:
+        data_collection("LOG", "ERROR", f"Notification failed: {e}")

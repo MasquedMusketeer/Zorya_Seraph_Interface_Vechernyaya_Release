@@ -16,10 +16,10 @@ def load_short_memory():
         log.data_collection("SHORT MEMORY", "LOAD", "Routine buffer loaded")
         return ("Routine buffer loaded", 0)
     except FileNotFoundError:
-        log.data_collection("SHORT MEMORY", "LOAD", "Routine buffer file not found")
+        log.data_collection("SHORT MEMORY", "ERROR", "Routine buffer file not found")
         return ("Bad program paths file path", 1)
     except json.JSONDecodeError as e:
-        log.data_collection("SHORT MEMORY", "LOAD", f"JSON parse error: {e}")
+        log.data_collection("SHORT MEMORY", "ERROR", f"JSON parse error: {e}")
         return ("Malformed program paths file", 1)
     
 def self_build_routine(routine_name,routine_description,tokens,routine_action_module,routine_action_function,routine_parameter):
@@ -35,7 +35,7 @@ def self_build_routine(routine_name,routine_description,tokens,routine_action_mo
                 })
     with open(buffer_intent_file_path, 'w', encoding='utf-8') as buffer_file:
         json.dump(buffer_intent, buffer_file, indent=4) 
-    log.data_collection("ROUTINE BUILDER", "BUILD", f"Routine built: {routine_name}")
+    log.data_collection("ROUTINE BUILDER", "ERROR", f"Routine built: {routine_name}")
 
 def build_routine(usr_self_flag):
     global buffer_intent
@@ -43,44 +43,46 @@ def build_routine(usr_self_flag):
     try:
         if usr_self_flag == "usr":
             log.data_collection("ROUTINE BUILDER", "BUILD", "Routine builder called by user")
-            print("Type the name of the routine you want to build (in the following format: ACTION_OBJECT).")
-            routine_name = input(">> ")
+            print("Zorya: Type the name of the routine you want to build (in the following format: ACTION_OBJECT).")
+            routine_name = input("You: ")
             routine_name = "INTENT_" + routine_name.upper()
             if interpreter._check_routine_existance(routine_name):
-                print("Routine already exists.")
+                print("Zorya: Routine already exists.")
                 log.data_collection("ROUTINE BUILDER", "BUILD", "Routine already exists")
                 return
             else:
-                print("Type the description of the routine you want to build.")
-                routine_description = input(">> ")
-                print("Type the command you want me to recognize:")
-                user_command = input(">> ")
-                print("Wait while i understand your command.")
+                print("Zorya: Type the description of the routine you want to build.")
+                routine_description = input("You: ")
+                print("Zorya: Type the command you want me to recognize:")
+                user_command = input("You: ")
+                print("Zorya: Wait while i understand your command.")
                 tokens = interpreter.phrase_tokenizer(user_command)
                 best_intent_id, match_score = interpreter.get_best_partial_match(tokens)
                 if match_score > 0:
                     template_data = interpreter.intent_map.get(best_intent_id)
-                    print(f"I found a similar command: '{template_data['description']}'.")
-                    print(f"I suggest using module: {template_data['action_module']} and function: {template_data['action_function']}.")
-                    print("Is this correct? (y/n)")
-                    user_confirmation = input(">> ")
+                    print(f"Zorya: I found a similar command: '{template_data['description']}'.")
+                    print(f"Zorya: I suggest using module: {template_data['action_module']} and function: {template_data['action_function']}.")
+                    print("Zorya: Is this correct? (y/n)")
+                    user_confirmation = input("You: ")
                     if user_confirmation.lower() == "y":
                         routine_action_module = template_data['action_module']
                         routine_action_function = template_data['action_function']
                     elif user_confirmation.lower() == "n":
-                        print("Type the module you want me to use.")
-                        routine_action_module = input(">> ")
-                        print("Type the function you want me to use.")
-                        routine_action_function = input(">> ")
+                        print("Zorya: Type the module you want me to use.")
+                        routine_action_module = input("You: ")
+                        print("Zorya: Type the function you want me to use.")
+                        routine_action_function = input("You: ")
                         if routine_action_module == "system_control_module" and (routine_action_function == "call_program" or routine_action_function == "call_batch_script"):
                             routine_parameter = scm.get_executable_path_from_user()
-                    routine_parameter = input("Type the parameter you want me to use (if any)")
+                    routine_parameter = input("Zorya: Type the parameter you want me to use (if any)")
 
                 else:
-                    print("I couldn't find a similar command. Please give me the required data.")
-                    routine_action_module = input("Type the module you want me to use.")
-                    routine_action_function = input("Type the function you want me to use.")
-                    routine_parameter = input("Type the parameter you want me to use (if any).")
+                    print("Zorya: I couldn't find a similar command. Please give me the required data.")
+                    print("Zorya: Type the module you want me to use.")
+                    routine_action_module = input("You: ")
+                    print("Zorya: Type the function you want me to use.")
+                    routine_action_function = input("You: ")
+                    routine_parameter = input("Zorya: Type the parameter you want me to use (if any)")
                 buffer_intent.update({
                     routine_name: {
                         "description": routine_description,
@@ -95,5 +97,5 @@ def build_routine(usr_self_flag):
             log.data_collection("ROUTINE BUILDER", "BUILD", f"Routine built: {routine_name}")
             
     except Exception as e:
-        log.data_collection("ROUTINE BUILDER", "BUILD", f"Error building routine: {e}")
-        print(f"Error building routine: {e}")
+        log.data_collection("ROUTINE BUILDER", "ERROR", f"Error building routine: {e}")
+        print(f"Zorya: Error building routine: {e}")

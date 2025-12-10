@@ -21,17 +21,20 @@ def _save_batch_commands(batch_name):
 def batch_orchestrator(dummy_parameter):
     global _batch_command_list
     orchestrator_operation = True
-    while orchestrator_operation:
-        print("Type bellow one line of the batch file you want to create,")
-        print(" then press Enter to continue. When you are done, type 'SAVE BATCH'.")
-        user_input = input(">> ")
-        if user_input.upper() == "SAVE BATCH":
-            batch_name = input("Enter the name for the batch file (without extension, use _ for spaces in the name): ")
-            _save_batch_commands(batch_name)
-            print(f"Batch file '{batch_name}.bat' saved successfully.")
-            log.data_collection("BATCH", "SAVE", f"Batch file '{batch_name}.bat' created with {_batch_command_list.__len__()} commands.")
-            orchestrator_operation = False
-            _batch_command_list.clear()
-        else:
-            _register_batch_command(user_input)
+    try:
+        while orchestrator_operation:
+            print("Zorya: Type bellow one line of the batch file you want to create,")
+            print(" then press Enter to continue. When you are done, type 'SAVE BATCH'.")
+            user_input = input("You: ")
+            if user_input.upper() == "SAVE BATCH":
+                batch_name = input("Zorya: Enter the name for the batch file (without extension, use _ for spaces in the name)\nYou: ")
+                _save_batch_commands(batch_name)
+                print(f"Zorya: Batch file '{batch_name}.bat' saved successfully.")
+                log.data_collection("BATCH", "SAVE", f"Batch file '{batch_name}.bat' created with {_batch_command_list.__len__()} commands.")
+                orchestrator_operation = False
+                _batch_command_list.clear()
+            else:
+                _register_batch_command(user_input)
+    except Exception as e:
+        log.data_collection("BATCH", "ERROR", f"Error creating batch file: {e}")
             

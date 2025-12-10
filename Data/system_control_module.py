@@ -5,22 +5,27 @@ from . import log_handler as log
 from . import interpretation_engine as interpreter
 
 program_file_path = os.path.join(os.path.dirname(__file__), "Long_term_memory","program_path.json")
+temp_program_file_path = os.path.join(os.path.dirname(__file__), "Long_term_memory", "program_path_temp.json")
 folder_file_path = os.path.join(os.path.dirname(__file__), "Long_term_memory", "folder_path.json")
 batch_file_path = os.path.join(os.path.dirname(__file__), "Built_Batches")
 program_paths = {}
+temp_program_paths = {}
 folder_paths = {}
 
 def load_program_paths():
     global program_paths
+    global temp_program_paths
     try:
         with open(program_file_path, 'r', encoding='utf-8') as path_file:
             program_paths = json.load(path_file)
+        with open(temp_program_file_path, 'r', encoding='utf-8') as temp_path_file:
+            temp_program_paths = json.load(temp_path_file)
         return ("Program paths loaded", 0)
     except FileNotFoundError:
-        log.data_collection("PROGRAM PATHS", "LOAD FILE", "Program paths file not found.")
+        log.data_collection("PROGRAM PATHS", "ERROR", "Program paths file not found.")
         return ("Bad program paths file path", 1)
     except json.JSONDecodeError as e:
-        log.data_collection("PROGRAM PATHS", "LOAD FILE", f"JSON parse error: {e}")
+        log.data_collection("PROGRAM PATHS", "ERROR", f"JSON parse error: {e}")
         return ("Malformed program paths file", 1)
 
 def load_folder_paths():
@@ -30,10 +35,10 @@ def load_folder_paths():
             folder_paths = json.load(path_file)
         return ("Folder paths loaded", 0)
     except FileNotFoundError:
-        log.data_collection("FOLDER PATHS", "LOAD FILE", "Folder paths file not found.")
+        log.data_collection("FOLDER PATHS", "ERROR", "Folder paths file not found.")
         return ("Bad folder paths file path", 1)
     except json.JSONDecodeError as e:
-        log.data_collection("FOLDER PATHS", "LOAD FILE", f"JSON parse error: {e}")
+        log.data_collection("FOLDER PATHS", "ERROR", f"JSON parse error: {e}")
         return ("Malformed folder paths file", 1)
     
 def get_executable_path_from_user():
@@ -56,7 +61,7 @@ def get_program_path(program_name):
 
 def set_program_path(dummy_parameter):
     global program_paths
-    print("Tell me the name of the program you want to set the path for:")
+    print("Zorya: Tell me the name of the program you want to set the path for.")
     program_name = input("You: ")
     interpreter.save_new_vocabulary(f"OBJECT.APP.{program_name}")
     if program_name != "":
@@ -69,7 +74,7 @@ def set_program_path(dummy_parameter):
             json.dump(program_paths, path_file, indent=4)
         log.data_collection("PROGRAM PATHS", "SET PATH", f"Set path for {program_name} to {path}")
     except Exception as e:
-        log.data_collection("PROGRAM PATHS", "SET PATH ERROR", f"Error setting path for {program_name}: {e}")
+        log.data_collection("PROGRAM PATHS", "ERROR", f"Error setting path for {program_name}: {e}")
 
 def set_folder_path(dummy_parameter):
     global folder_paths
@@ -86,7 +91,7 @@ def set_folder_path(dummy_parameter):
             json.dump(folder_paths, path_file, indent=4)
         log.data_collection("FOLDER PATHS", "SET PATH", f"Set path for {folder_name} to {path}")
     except Exception as e:
-        log.data_collection("FOLDER PATHS", "SET PATH ERROR", f"Error setting path for {folder_name}: {e}")
+        log.data_collection("FOLDER PATHS", "ERROR", f"Error setting path for {folder_name}: {e}")
 
 def call_program(program_name):
     try:
@@ -95,7 +100,7 @@ def call_program(program_name):
             raise ValueError
     except ValueError as e:
         log.data_collection("PROGRAM PATHS", "CALL PROGRAM ERROR", f"Error getting program path for {program_name}: {e}")
-        print("I don't know that program yet. Can you show me the program's executable?")
+        print("Zorya: I don't know that program yet. Can you show me the program's executable?")
         set_program_path("dummy_parameter")
         path = get_program_path(program_name)
         
@@ -104,9 +109,9 @@ def call_program(program_name):
             os.startfile(path)  # Windows-specific
             log.data_collection("PROGRAM PATHS", "CALL PROGRAM", f"Called program {program_name} at {path}")
         except Exception as e:
-            log.data_collection("PROGRAM PATHS", "CALL PROGRAM ERROR", f"Error calling program {program_name}: {e}")
+            log.data_collection("PROGRAM PATHS", "ERROR", f"Error calling program {program_name}: {e}")
     else:
-        log.data_collection("PROGRAM PATHS", "CALL PROGRAM ERROR", f"Program path for {program_name} not found.")
+        log.data_collection("PROGRAM PATHS", "ERROR", f"Program path for {program_name} not found.")
 
 def call_batch_script(dummy_parameter):
     script_name = input("Enter the name of the batch script (without extension): ")
@@ -117,7 +122,7 @@ def call_batch_script(dummy_parameter):
         log.data_collection("PROGRAM PATHS", "CALL BATCH SCRIPT", f"Called batch script at {script_name}")
         print(f"Batch script {script_name} sucessfull")
     except Exception as e:
-        log.data_collection("PROGRAM PATHS", "CALL BATCH SCRIPT ERROR", f"Error calling batch script: {e}")                                                                              
+        log.data_collection("PROGRAM PATHS", "ERROR", f"Error calling batch script: {e}")                                                                              
 
 def open_specific_directory(directory_name):
     try:
@@ -126,10 +131,58 @@ def open_specific_directory(directory_name):
             os.startfile(path)  # Windows-specific
             log.data_collection("FOLDER PATHS", "OPEN DIRECTORY", f"Opened directory {directory_name} at {path}")
         else:
-            log.data_collection("FOLDER PATHS", "OPEN DIRECTORY ERROR", f"Directory path for {directory_name} not found.")
+            log.data_collection("FOLDER PATHS", "ERROR", f"Directory path for {directory_name} not found.")
     except Exception as e:
-        log.data_collection("FOLDER PATHS", "OPEN DIRECTORY ERROR", f"Error opening directory {directory_name}: {e}")
+        log.data_collection("FOLDER PATHS", "ERROR", f"Error opening directory {directory_name}: {e}")
         
 def force_close_program(dummy_parameter):
-    usr_input = input("What program do you want to close? ")
+    print("Zorya: Which program do you want me to anihilate??")
+    usr_input = input("You: ")
     os.system(f"taskkill /f /im {usr_input}.exe")
+    
+#-----------------------------------------------------------Used to gather and save new paths from frequent executables.
+
+def all_known_programs():
+    global program_paths
+    global temp_program_paths
+    known_programs = []
+    for program_name, path in program_paths.items():
+        known_programs.append(program_name)
+    for program_name, path in temp_program_paths.items():
+        known_programs.append(program_name)
+    return known_programs
+    
+def self_set_program_path(name,path):
+    temp_program_paths.update({name: path})
+    try:
+        with open(temp_program_file_path, 'w', encoding='utf-8') as path_file:
+            json.dump(temp_program_paths, path_file, indent=4)
+        log.data_collection("PROGRAM PATHS", "SET PATH", f"Set path for {name} to {path}")
+    except Exception as e:
+        log.data_collection("PROGRAM PATHS", "ERROR", f"Error setting path for {name}: {e}")
+        
+def self_temp_to_disk(app):
+    global program_paths
+    global temp_program_paths
+    try:
+        if app in temp_program_paths:
+            program_paths.update({app: temp_program_paths[app]})
+            del temp_program_paths[app]
+            with open(program_file_path, 'w', encoding='utf-8') as path_file:
+                json.dump(program_paths, path_file, indent=4)
+            with open(temp_program_file_path, 'w', encoding='utf-8') as path_file:
+                json.dump(temp_program_paths, path_file, indent=4)
+            log.data_collection("PROGRAM PATHS", "SET PATH", f"Moved {app} from temp to disk")
+    except Exception as e:
+            log.data_collection("PROGRAM PATHS", "ERROR", f"App {app} not found in temp")
+            
+def self_ignore_temp(app):
+    global temp_program_paths
+    try:
+        if app in temp_program_paths:
+            del temp_program_paths[app]
+            with open(temp_program_file_path, 'w', encoding='utf-8') as path_file:
+                json.dump(temp_program_paths, path_file, indent=4)
+            log.data_collection("PROGRAM PATHS", "SET PATH", f"Ignored {app} in temp")
+    except Exception as e:
+            log.data_collection("PROGRAM PATHS", "ERROR", f"App {app} not found in temp")

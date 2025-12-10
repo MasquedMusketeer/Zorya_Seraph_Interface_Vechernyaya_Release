@@ -1,5 +1,5 @@
 {
-    "structure_version": "0.1.4",
+    "structure_version": "0.5.0",
     "ACTION": {
         "CREATE": [
             "create",
@@ -7,7 +7,8 @@
             "build",
             "generate",
             "new",
-            "add"
+            "add",
+            "save"
         ],
         "DELETE": [
             "delete",
@@ -24,7 +25,9 @@
             "start",
             "fire",
             "call",
-            "pick"
+            "pick",
+            "ping",
+            "restore"
         ],
         "QUERY": [
             "what",
@@ -34,7 +37,8 @@
             "check",
             "show",
             "display",
-            "report"
+            "report",
+            "tell"
         ],
         "SET": [
             "set",
@@ -65,7 +69,9 @@
             "mute",
             "unmute",
             "pause",
-            "cancel"
+            "cancel",
+            "update",
+            "access"
         ]
     },
     "USER_TALKS": {
@@ -74,7 +80,8 @@
             "hello",
             "hey",
             "yo",
-            "sup"
+            "sup",
+            "joke"
         ],
         "EMOTION": [
             "sorry",
@@ -134,6 +141,18 @@
             "and",
             "or",
             "then"
+        ],
+        "CONDITION": [
+            "new"
+        ]
+    },
+    "DEBUG": {
+        "DEBUG": [
+            "invoke",
+            "debugging",
+            "override",
+            "akashic",
+            "records"
         ]
     },
     "OBJECT": {
@@ -145,12 +164,19 @@
             "zorya",
             "zsi"
         ],
+        "USER": [
+            "user",
+            "me",
+            "my",
+            "myself"
+        ],
         "CMD": [
             "command",
             "cmd",
             "terminal",
             "shell",
-            "prompt"
+            "prompt",
+            "ssh"
         ],
         "SYSTEM": [
             "startup",
@@ -158,7 +184,38 @@
             "reboot",
             "shutdown",
             "restart",
-            "update"
+            "update",
+            "system",
+            "treshold",
+            "vocabulary",
+            "ram",
+            "pc",
+            "virus",
+            "backup"
+        ],
+        "NETWORK": [
+            "network",
+            "internet",
+            "connection",
+            "wifi",
+            "lan",
+            "ethernet",
+            "router",
+            "ip",
+            "port",
+            "host",
+            "dns",
+            "dhcp",
+            "proxy",
+            "vpn",
+            "nat",
+            "firewall",
+            "gateway",
+            "subnet",
+            "mask",
+            "gateway",
+            "server",
+            "client"
         ],
         "FILE": [
             "file",
@@ -186,13 +243,18 @@
             "notepad",
             "calculator",
             "vscode",
+            "code",
             "noita_proxy",
             "sharex",
             "protonvpn",
             "vortex",
             "pato",
             "skse",
-            "ddo"
+            "ddo",
+            "vencord",
+            "droidcam",
+            "githubdesktop",
+            "necesse"
         ],
         "PATH": [
             "path",

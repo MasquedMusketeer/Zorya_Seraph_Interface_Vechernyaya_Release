@@ -3,7 +3,7 @@
         "description": "Execute a system command (e.g., open command prompt).",
         "tokens": [
             "ACTION.EXECUTE",
-            "OBJECT.CMD"
+            "OBJECT.CMD.command"
         ],
         "action_module": "command_runner",
         "action_function": "load_cmd",
@@ -233,7 +233,7 @@
     "INTENT_FORCE_KILL_PROGRAM": {
         "description": "kill a program without opening task manager",
         "tokens": [
-            "ACTION.CONTROL.kill",
+            "ACTION.CLOSE.kill",
             "OBJECT.APP.program"
         ],
         "action_module": "system_control_module",
@@ -298,7 +298,7 @@
         ],
         "action_module": "system_control_module",
         "action_function": "call_program",
-        "parameters": "vscode"
+        "parameters": "code"
     },
     "INTENT_OPEN_SKSE": {
         "description": "open the app skse",
@@ -342,5 +342,181 @@
         "action_module": "system_control_module",
         "action_function": "call_program",
         "parameters": "ddo"
+    },
+    "INTENT_OPEN_VENCORD": {
+        "description": "open the app vencord",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.vencord"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "vencord"
+    },
+    "INTENT_SYSTEM_OVERRIDE1": {
+        "description": "enables arbitrary function calls",
+        "tokens": [
+            "DEBUG.DEBUG.invoke",
+            "OBJECT.SYSTEM.system",
+            "DEBUG.DEBUG.override"
+        ],
+        "action_module": "debug_module",
+        "action_function": "arbitrary_function_execution",
+        "parameters": ""
+    },
+    "INTENT_SYSTEM_OVERRIDE2": {
+        "description": "enables arbitrary function calls",
+        "tokens": [
+            "ACTION.CONTROL.access",
+            "DEBUG.DEBUG.akashic",
+            "DEBUG.DEBUG.records"
+        ],
+        "action_module": "debug_module",
+        "action_function": "arbitrary_function_execution",
+        "parameters": ""
+    },
+    "INTENT_OPEN_GITHUBDESKTOP": {
+        "description": "open the app githubdesktop",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.githubdesktop"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "githubdesktop"
+    },
+    "INTENT_OPEN_SPOTIFY": {
+        "description": "open the app spotify",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.spotify"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "spotify"
+    },
+    "INTENT_SET_USE_TRESHOLD": {
+        "description": "set the use treshold before triggering suggestions (every 1unit = 5min)",
+        "tokens": [
+            "ACTION.SET.set",
+            "ACTION.CREATE.new",
+            "OBJECT.SYSTEM.treshold"
+        ],
+        "action_module": "memory_flags_loader",
+        "action_function": "set_new_use_treshold",
+        "parameters": ""
+    },
+    "INTENT_OPEN_NMS": {
+        "description": "open the app nms",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.nms"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "nms"
+    },
+    "INTENT_OPEN_TASKMGR": {
+        "description": "open the app taskmgr",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.taskmgr"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "taskmgr"
+    },
+    "INTENT_OPEN_WINPINATOR": {
+        "description": "open the app winpinator",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.winpinator"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "winpinator"
+    },
+    "INTENT_OPEN_DROIDCAMAPP": {
+        "description": "open the app droidcamapp",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.droidcam"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "droidcamapp"
+    },
+    "INTENT_PING_SITE": {
+        "description": "ping a specific site, because why not?",
+        "tokens": [
+            "ACTION.EXECUTE.ping",
+            "OBJECT.WEB.site"
+        ],
+        "action_module": "command_runner",
+        "action_function": "ping_specific_site",
+        "parameters": ""
+    },
+    "INTENT_SSH_CONNECT": {
+        "description": "makes an ssh conection to a remote server (dangerous, you can go to jail)",
+        "tokens": [
+            "ACTION.EXECUTE.run",
+            "OBJECT.CMD.ssh",
+            "OBJECT.NETWORK.client"
+        ],
+        "action_module": "putty_manager_module",
+        "action_function": "ssh_connection_orchestrator",
+        "parameters": ""
+    },
+    "INTENT_TELL_JOKE": {
+        "description": "tell a joke",
+        "tokens": [
+            "ACTION.QUERY.tell",
+            "OBJECT.USER",
+            "USER_TALKS.SMALLTALK.joke"
+        ],
+        "action_module": "Zorya",
+        "action_function": "self_tell_joke",
+        "parameters": ""
+    },
+    "INTENT_SAVE_NEW_VOCAB": {
+        "description": "saves new vocabulary",
+        "tokens": [
+            "ACTION.CREATE",
+            "COMPLEMENT.CONDITION.new",
+            "OBJECT.SYSTEM.vocabulary"
+        ],
+        "action_module": "Zorya",
+        "action_function": "self_save_new_vocab",
+        "parameters": ""
+    },
+    "INTENT_OPEN_NECESSE": {
+        "description": "open the app necesse",
+        "tokens": [
+            "ACTION.OPEN",
+            "OBJECT.APP.necesse"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "call_program",
+        "parameters": "necesse"
+    },
+    "INTENT_CREATE_BACKUP": {
+        "description": "creates a backup of current memory json files stored on AppData/roamming",
+        "tokens": [
+            "ACTION.CREATE",
+            "OBJECT.SYSTEM.backup"
+        ],
+        "action_module": "Zorya",
+        "action_function": "backup_handler",
+        "parameters": "BACKUP"
+    },
+    "INTENT_RESTORE_BACKUP": {
+        "description": "Restores the backed up memory jsons stored on AppData/roamming",
+        "tokens": [
+            "ACTION.EXECUTE.restore",
+            "OBJECT.SYSTEM.backup"
+        ],
+        "action_module": "Zorya",
+        "action_function": "backup_handler",
+        "parameters": "RESTORE"
     }
 }
