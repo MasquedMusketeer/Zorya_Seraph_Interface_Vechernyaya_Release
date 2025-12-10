@@ -257,7 +257,7 @@ When testing, please:
 
 ## License
 
-Zorya Serapth Interface - Copyright (C) 2025 Mendoukusai ByteLabs
+Zorya Seraph Interface - Copyright (C) 2025 Mendoukusai ByteLabs
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
