@@ -163,7 +163,7 @@ def header_load():
         print(line.strip("\n"))
 
 def first_startup():
-    audio_text_synchronizer("FIRST_TIME")
+    audio_text_synchronizer("FIRST_RUN")
     
 def protocol_matrix(dummy_parameter):
     print("-------------------------------")
