@@ -167,6 +167,13 @@ def get_all_intents():
         all_current_intents.append(intent_name)
     return all_current_intents
 
+def get_single_intent(intent_name):
+    global intent_map
+    if intent_name in intent_map:
+        return intent_map[intent_name]
+    else:
+        return None
+
 def get_all_vocab_classifications():
     global vocabulary
     all_current_vocab = []
@@ -176,3 +183,29 @@ def get_all_vocab_classifications():
             line = f"{category}: " + ", ".join(vocab_cat_buffer)
             all_current_vocab.append(line)
     return all_current_vocab
+
+def delete_intent(intent_name):
+    global intent_map
+    try:
+        if intent_name in intent_map:
+            del intent_map[intent_name]
+            log.data_collection("INTERPRETATION ENGINE", "DELETE INTENT", f"Intent {intent_name} deleted.")
+        else:
+            log.data_collection("INTERPRETATION ENGINE", "DELETE INTENT", f"Intent {intent_name} not found.")
+    except Exception as e:
+        log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error deleting intent: {e}")
+
+def delete_vocabulary(category_subcategory_word):
+    global vocabulary
+    global vocabulary_path
+    category, subcategory, word = category_subcategory_word.split(".")
+    try:
+        if word in vocabulary[category][subcategory]:
+            vocabulary[category][subcategory].remove(word)
+            with open(vocabulary_path, 'w', encoding='utf-8') as vocab_file:
+                json.dump(vocabulary, vocab_file, indent=4)
+            log.data_collection("INTERPRETATION ENGINE", "DELETE VOCAB", f"Word {word} deleted from category {category}.{subcategory}")
+        else:
+            log.data_collection("INTERPRETATION ENGINE", "DELETE VOCAB", f"Word {word} not found in category {category}.{subcategory}")
+    except Exception as e:
+        log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error deleting vocabulary: {e}")

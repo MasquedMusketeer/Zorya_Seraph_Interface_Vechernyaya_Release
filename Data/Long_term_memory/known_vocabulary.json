@@ -47,20 +47,28 @@
             "register",
             "configure",
             "apply",
-            "enter",
+            "enter"
+        ],
+        "UPDATE": [
+            "update",
+            "modify",
             "change",
             "adjust",
-            "modify"
+            "correct",
+            "edit",
+            "alter",
+            "refresh"
         ],
         "OPEN": [
             "open"
         ],
         "CLOSE": [
             "close",
-            "shut",
+            "shutdown",
             "goodbye",
             "bye",
-            "kill"
+            "kill",
+            "goodnight"
         ],
         "CONTROL": [
             "stop",
@@ -70,7 +78,6 @@
             "unmute",
             "pause",
             "cancel",
-            "update",
             "access"
         ]
     },
@@ -254,7 +261,8 @@
             "vencord",
             "droidcam",
             "githubdesktop",
-            "necesse"
+            "necesse",
+            "wolong"
         ],
         "PATH": [
             "path",
@@ -264,7 +272,8 @@
         ],
         "FOLDER": [
             "folder",
-            "souls_saves"
+            "souls_saves",
+            "documents"
         ],
         "SETTING": [
             "volume",
@@ -276,7 +285,8 @@
             "settings",
             "status",
             "routine",
-            "protocol"
+            "protocol",
+            "intent"
         ],
         "LOG": [
             "log",

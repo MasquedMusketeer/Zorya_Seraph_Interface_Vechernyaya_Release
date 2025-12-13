@@ -69,36 +69,6 @@
         "action_function": "set_program_path",
         "parameters": ""
     },
-    "INTENT_OPEN_STEAM": {
-        "description": "Open the Steam application.",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.steam"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "steam"
-    },
-    "INTENT_OPEN_VIVALDI": {
-        "description": "Open the Vivaldi browser.",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.vivaldi"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "vivaldi"
-    },
-    "INTENT_OPEN_BRAVE": {
-        "description": "Open the Brave browser.",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.brave"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "brave"
-    },
     "INTENT_STOP_ZORYA": {
         "description": "Shut down Zorya.",
         "tokens": [
@@ -169,46 +139,6 @@
         "action_function": "respond_time_query",
         "parameters": {}
     },
-    "INTENT_OPEN_DOCUMENTS": {
-        "description": "open the documents folder",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.PATH.documents"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "open_specific_directory",
-        "parameters": "documents"
-    },
-    "INTENT_OPEN_NOITA_PROXY": {
-        "description": "open the app noita_proxy",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.noita_proxy"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "noita_proxy"
-    },
-    "INTENT_OPEN_FLUFFY": {
-        "description": "open the app fluffy",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.fluffy"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "fluffy"
-    },
-    "INTENT_UPDATE_SELF": {
-        "description": "update self intent mapping on user request",
-        "tokens": [
-            "ACTION.SYSTEM.update",
-            "OBJECT.SELF"
-        ],
-        "action_module": "Zorya",
-        "action_function": "update_self_intent_mapping",
-        "parameters": ""
-    },
     "INTENT_REPORT_SELF_INTENT": {
         "description": "reports how many intent zorya currently has",
         "tokens": [
@@ -240,76 +170,6 @@
         "action_function": "force_close_program",
         "parameters": ""
     },
-    "INTENT_OPEN_SHAREX": {
-        "description": "open the app sharex",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.sharex"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "sharex"
-    },
-    "INTENT_OPEN_PROTONVPN": {
-        "description": "open the app protonvpn",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.protonvpn"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "protonvpn"
-    },
-    "INTENT_OPEN_VORTEX": {
-        "description": "open the app vortex",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.vortex"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "vortex"
-    },
-    "INTENT_OPEN_PATO": {
-        "description": "open the app pato",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.pato"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "pato"
-    },
-    "INTENT_OPEN_DISCORD": {
-        "description": "open the app discord",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.discord"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "discord"
-    },
-    "INTENT_OPEN_VSCODE": {
-        "description": "open the app vscode",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.vscode"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "code"
-    },
-    "INTENT_OPEN_SKSE": {
-        "description": "open the app skse",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.skse"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "skse"
-    },
     "INTENT_RUN_PROTOCOL_MATRIX": {
         "description": "???????????????",
         "tokens": [
@@ -333,26 +193,6 @@
         "action_function": "set_new_startup_app",
         "parameters": ""
     },
-    "INTENT_OPEN_DDO": {
-        "description": "open the app ddo",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.ddo"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "ddo"
-    },
-    "INTENT_OPEN_VENCORD": {
-        "description": "open the app vencord",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.vencord"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "vencord"
-    },
     "INTENT_SYSTEM_OVERRIDE1": {
         "description": "enables arbitrary function calls",
         "tokens": [
@@ -375,26 +215,6 @@
         "action_function": "arbitrary_function_execution",
         "parameters": ""
     },
-    "INTENT_OPEN_GITHUBDESKTOP": {
-        "description": "open the app githubdesktop",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.githubdesktop"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "githubdesktop"
-    },
-    "INTENT_OPEN_SPOTIFY": {
-        "description": "open the app spotify",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.spotify"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "spotify"
-    },
     "INTENT_SET_USE_TRESHOLD": {
         "description": "set the use treshold before triggering suggestions (every 1unit = 5min)",
         "tokens": [
@@ -405,46 +225,6 @@
         "action_module": "memory_flags_loader",
         "action_function": "set_new_use_treshold",
         "parameters": ""
-    },
-    "INTENT_OPEN_NMS": {
-        "description": "open the app nms",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.nms"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "nms"
-    },
-    "INTENT_OPEN_TASKMGR": {
-        "description": "open the app taskmgr",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.taskmgr"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "taskmgr"
-    },
-    "INTENT_OPEN_WINPINATOR": {
-        "description": "open the app winpinator",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.winpinator"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "winpinator"
-    },
-    "INTENT_OPEN_DROIDCAMAPP": {
-        "description": "open the app droidcamapp",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.droidcam"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "droidcamapp"
     },
     "INTENT_PING_SITE": {
         "description": "ping a specific site, because why not?",
@@ -489,21 +269,12 @@
         "action_function": "self_save_new_vocab",
         "parameters": ""
     },
-    "INTENT_OPEN_NECESSE": {
-        "description": "open the app necesse",
-        "tokens": [
-            "ACTION.OPEN",
-            "OBJECT.APP.necesse"
-        ],
-        "action_module": "system_control_module",
-        "action_function": "call_program",
-        "parameters": "necesse"
-    },
     "INTENT_CREATE_BACKUP": {
         "description": "creates a backup of current memory json files stored on AppData/roamming",
         "tokens": [
             "ACTION.CREATE",
-            "OBJECT.SYSTEM.backup"
+            "OBJECT.SYSTEM.backup",
+            "OBJECT.SELF"
         ],
         "action_module": "Zorya",
         "action_function": "backup_handler",
@@ -513,10 +284,21 @@
         "description": "Restores the backed up memory jsons stored on AppData/roamming",
         "tokens": [
             "ACTION.EXECUTE.restore",
-            "OBJECT.SYSTEM.backup"
+            "OBJECT.SYSTEM.backup",
+            "OBJECT.SELF"
         ],
         "action_module": "Zorya",
         "action_function": "backup_handler",
         "parameters": "RESTORE"
+    },
+    "INTENT_CORRECT_INTENT": {
+        "description": "correct or deletes an intent",
+        "tokens": [
+            "ACTION.UPDATE",
+            "OBJECT.SETTING.routine"
+        ],
+        "action_module": "routine_builder_module",
+        "action_function": "correct_built_routine",
+        "parameters": ""
     }
 }

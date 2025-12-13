@@ -1,6 +1,7 @@
 {
-    "structure_version": "0.5.0",
-    "app_version": "0.5.0",
+    "structure_version": "0.5.1",
+    "app_version": "0.5.1",
+    "development_state": "Apha",
     "operator_mood_score": 0.0,
     "operator_name": "Operator",
     "self_mood_score": {
@@ -16,7 +17,7 @@
     "correct_power_off": true,
     "last_phrase_type": "",
     "last_phrase_index": "",
-    "log_size": 5,
+    "log_size": 3,
     "session_count": 0,
     "apps_expected_at_start": [
     ],

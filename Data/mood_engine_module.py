@@ -31,7 +31,14 @@ def alter_self_mood(order,value):
             if self_mood_score[mood_med] < 0:
                 self_mood_score[mood_med] = 0
                 self_mood_score[mood_low] = mood_max_value
-            self_mood_score[mood_low] += value
+            else:
+                self_mood_score[mood_low] += value
+                if self_mood_score[mood_low] > mood_max_value:
+                    self_mood_score[mood_low] = mood_max_value
+        
+        elif self_mood_score[mood_low] > 2:
+            self_mood_score[mood_low] = mood_max_value
+            log.data_collection("MOOD ENGINE", "CHANGE", "Mood over the allowed threshold, correction executed.")
         
         else:
             log.data_collection("MOOD ENGINE", "CHANGE", "No changes in the current mood were made due it it being maxed out.")
@@ -45,12 +52,12 @@ def alter_self_mood(order,value):
         
         
 def raise_mood(value):
+    log.data_collection("MOOD ENGINE", "CHANGE", f"Request: raise self mood by {value}")
     alter_self_mood("s>n>h", value)
-    log.data_collection("MOOD ENGINE", "CHANGE", f"Self mood raised by {value}")
     
 def lower_mood(value):
+    log.data_collection("MOOD ENGINE", "CHANGE", f"Request: lower self mood by {value}")
     alter_self_mood("h>n>s", value)
-    log.data_collection("MOOD ENGINE", "CHANGE", f"Self mood lowered by {value}")
     
 #---------------------------------------------- 1.user interaction
 def self_alter_mood_user_interaction():

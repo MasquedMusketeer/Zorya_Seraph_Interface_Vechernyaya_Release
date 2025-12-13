@@ -52,7 +52,7 @@ def header_return():
     "                                    │       Virtual assistant and banter       │",
     "                                    │          companion for your pc.          │",
     "                                    │                                          │",
-    f"                                    │             Ver {mfl.flag_return("app_version")} Alpha              │",
+    f"                                    │             Ver {mfl.flag_return("app_version")} {mfl.flag_return("development_state")}              │",
     "                                    │           Vechernyaya release            │",
     "                                    │                                          │",
     "                                    │Mendoukusai ByteLabs   All Rights Reserved│",

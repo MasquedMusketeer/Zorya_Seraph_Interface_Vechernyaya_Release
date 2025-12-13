@@ -23,19 +23,22 @@ def load_short_memory():
         return ("Malformed program paths file", 1)
     
 def self_build_routine(routine_name,routine_description,tokens,routine_action_module,routine_action_function,routine_parameter):
-    global buffer_intent
-    buffer_intent.update({
-                    routine_name: {
-                        "description": routine_description,
-                        "tokens": tokens,
-                        "action_module": routine_action_module,
-                        "action_function": routine_action_function,
-                        "parameters": routine_parameter
-                    }
-                })
-    with open(buffer_intent_file_path, 'w', encoding='utf-8') as buffer_file:
-        json.dump(buffer_intent, buffer_file, indent=4) 
-    log.data_collection("ROUTINE BUILDER", "ERROR", f"Routine built: {routine_name}")
+    try:
+        global buffer_intent
+        buffer_intent.update({
+                        routine_name: {
+                            "description": routine_description,
+                            "tokens": tokens,
+                            "action_module": routine_action_module,
+                            "action_function": routine_action_function,
+                            "parameters": routine_parameter
+                        }
+                    })
+        with open(buffer_intent_file_path, 'w', encoding='utf-8') as buffer_file:
+            json.dump(buffer_intent, buffer_file, indent=4) 
+        log.data_collection("ROUTINE BUILDER", "BUILD", f"Routine built: {routine_name}")
+    except Exception as e:
+        log.data_collection("ROUTINE BUILDER", "ERROR", f"Error building routine: {e}")
 
 def build_routine(usr_self_flag):
     global buffer_intent
@@ -99,3 +102,72 @@ def build_routine(usr_self_flag):
     except Exception as e:
         log.data_collection("ROUTINE BUILDER", "ERROR", f"Error building routine: {e}")
         print(f"Zorya: Error building routine: {e}")
+        
+def correct_built_routine(dummy_param):
+    def filter_intents(routine_type, all_intents):
+        if routine_type in ["folder", "program"]:
+            return [intent for intent in all_intents if "INTENT_OPEN" in intent]
+        return [intent for intent in all_intents if "INTENT_OPEN" not in intent]
+    
+    def cleanup_routine(routine_type, intent_data, intent_name, mode):
+        token_type = "APP" if routine_type == "program" else routine_type.upper()
+        keyword = next((token for token in intent_data['tokens'] if f"OBJECT.{token_type}" in token), "")
+        if keyword:
+            interpreter.delete_vocabulary(keyword)
+            
+        if routine_type == "folder":
+            scm.delete_folder(intent_data['parameters'])
+            if mode == "correct":
+                scm.set_folder_path("dummy_param")
+        elif routine_type == "program":
+            scm.delete_program(intent_data['parameters'])
+            if mode == "correct":
+                scm.set_program_path("dummy_param")
+        interpreter.delete_intent(intent_name)
+            
+    try:
+        print("Zorya: Ok, despite me not liking to work twice, i'll do it again.\nNow, is it a folder, a program call, or something else?")
+        print("Zorya: Type folder, program, or other.")
+        routine_type = input("You: ")
+        
+        if routine_type not in ["folder", "program", "other"]:
+            print("Zorya: I don't know what you mean, try a valid input for once will you?")
+            return
+        
+        filtered_intents = filter_intents(routine_type, interpreter.get_all_intents())
+        print("Zorya: Ok, i'll show you the list of routines that i found, see if the one is there and type the name:")
+        for intent in filtered_intents:
+            print(intent)
+        
+        routine_choice = input("You: ").upper()
+        intent_data = interpreter.get_single_intent(routine_choice)
+        
+        if not intent_data:
+            print("Zorya: That routine doesn't exist, did you type the name right?")
+            return
+        
+        if routine_type in ["folder", "program"]:
+            print("Zorya: Ok so now, you have a few options...correct it, or delete it... (type correct or delete)")
+        else:
+            print("Zorya: Ok so now, you have a few options...delete it...that's it... (type delete)")
+        
+        action = input("You: ")
+        
+        if action == "delete":
+            cleanup_routine(routine_type, intent_data, routine_choice, "delete")
+            print("Zorya: Done and done, thank me later.")
+        elif action == "correct" and routine_type in ["folder", "program"]:
+            print("Zorya: Ok, let's correct it.")
+            cleanup_routine(routine_type, intent_data,routine_choice, "correct")
+        elif action == "correct" and routine_type == "other":
+            print("Zorya: It seems you tried without your brain. C'mon, i dont have those fancy pants LLMs...yet.")
+            print("Zorya: Try again, but this time, try to be coherent")
+            self_build_routine(routine_choice, intent_data['description'], intent_data['tokens'], 
+                             intent_data['action_module'], intent_data['action_function'], intent_data['parameters'])
+        else:
+            print("Zorya: Invalid choice. Try 'correct' or 'delete', it's not rocket science.")
+            
+    except Exception as e:
+        log.data_collection("ROUTINE BUILDER", "ERROR", f"Error correcting routine: {e}")
+        print(f"Zorya: Error correcting routine: {e}")
+    

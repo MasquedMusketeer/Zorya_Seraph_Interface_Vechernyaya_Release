@@ -60,6 +60,7 @@ def get_program_path(program_name):
     return program_paths.get(program_name, None)
 
 def set_program_path(dummy_parameter):
+    from . import memory_flags_loader as mfl
     global program_paths
     print("Zorya: Tell me the name of the program you want to set the path for.")
     program_name = input("You: ")
@@ -69,12 +70,23 @@ def set_program_path(dummy_parameter):
         rbm.self_build_routine(f"INTENT_OPEN_{program_name.upper()}",f"open the app {program_name}",["ACTION.OPEN",f"OBJECT.APP.{program_name}"],"system_control_module","call_program",program_name)
         path = get_executable_path_from_user()
         program_paths.update({program_name: path})
+        mfl.flag_update("silenced_apps", {program_name: "silence"})
     try:
         with open(program_file_path, 'w', encoding='utf-8') as path_file:
             json.dump(program_paths, path_file, indent=4)
         log.data_collection("PROGRAM PATHS", "SET PATH", f"Set path for {program_name} to {path}")
     except Exception as e:
         log.data_collection("PROGRAM PATHS", "ERROR", f"Error setting path for {program_name}: {e}")
+
+def delete_program_path(program_name):
+    global program_paths
+    try:
+        del program_paths[program_name]
+        with open(program_file_path, 'w', encoding='utf-8') as path_file:
+            json.dump(program_paths, path_file, indent=4)
+        log.data_collection("PROGRAM PATHS", "DELETE PATH", f"Deleted path for {program_name}")
+    except Exception as e:
+        log.data_collection("PROGRAM PATHS", "ERROR", f"Error deleting path for {program_name}: {e}")
 
 def set_folder_path(dummy_parameter):
     global folder_paths
@@ -92,6 +104,16 @@ def set_folder_path(dummy_parameter):
         log.data_collection("FOLDER PATHS", "SET PATH", f"Set path for {folder_name} to {path}")
     except Exception as e:
         log.data_collection("FOLDER PATHS", "ERROR", f"Error setting path for {folder_name}: {e}")
+
+def delete_folder_path(folder_name):
+    global folder_paths
+    try:
+        del folder_paths[folder_name]
+        with open(folder_file_path, 'w', encoding='utf-8') as path_file:
+            json.dump(folder_paths, path_file, indent=4)
+        log.data_collection("FOLDER PATHS", "DELETE PATH", f"Deleted path for {folder_name}")
+    except Exception as e:
+        log.data_collection("FOLDER PATHS", "ERROR", f"Error deleting path for {folder_name}: {e}")
 
 def call_program(program_name):
     try:

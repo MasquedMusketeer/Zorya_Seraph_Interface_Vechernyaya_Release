@@ -223,6 +223,9 @@ def audio_text_synchronizer(category: str):
 #-------------------------------------------------------------------------------------------self execution-----------------------------
 
 def self_backup_memory_folder():
+    mfl.flag_update("last_backup_session_ID",log.sessionID_return())
+    mfl.flag_update("make_backup", False)
+    mfl.save_ram_flags()
     memory_folder = os.path.join(os.path.dirname(__file__), "Data", "Long_term_memory")
     appdata = os.getenv("APPDATA")
     backup_folder = os.path.join(appdata, "Zorya", "Memory_backup")
@@ -230,10 +233,9 @@ def self_backup_memory_folder():
         os.makedirs(backup_folder)
     cmr.self_silent_command(f'robocopy "{memory_folder}" "{backup_folder}" /E')
     log.data_collection("ZORYA", "BACKUP", "Memory folder backed up.")
-    mfl.flag_update("make_backup", False)
-    mfl.flag_update("last_backup_session_ID",log.sessionID_return())
 
 def self_restore_backup():
+    mfl.flag_update("restore_backup", False)
     memory_folder = os.path.join(os.path.dirname(__file__), "Data", "Long_term_memory")
     appdata = os.getenv("APPDATA")
     backup_folder = os.path.join(appdata, "Zorya", "Memory_backup")
@@ -241,7 +243,6 @@ def self_restore_backup():
         os.makedirs(backup_folder)
     cmr.self_silent_command(f'robocopy "{backup_folder}" "{memory_folder}" /E')
     log.data_collection("ZORYA", "RESTORE", "Memory folder restored.")
-    mfl.flag_update("restore_backup", False)
 
 def respond_self_query(dummy_parameter):
     audio_text_synchronizer("HAPPY")
