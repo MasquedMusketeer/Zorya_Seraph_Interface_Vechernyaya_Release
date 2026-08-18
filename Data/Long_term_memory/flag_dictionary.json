@@ -1,29 +1,34 @@
 {
-    "structure_version": "0.5.1",
-    "app_version": "0.5.1",
-    "development_state": "Apha",
+    "structure_version": "0.6.9",
+    "app_version": "0.6.9",
+    "development_state": "Plsh",
     "operator_mood_score": 0.0,
     "operator_name": "Operator",
     "self_mood_score": {
-        "happy": 2.0,
-        "neutral": 0.0,
+        "happy": 0.0,
+        "neutral": 2.0,
         "sad": 0.0
     },
+    "usefulness_score": 0,
+    "joke_count": 0,
+    "joke_counter_degradation_threshold": 0,
     "user_interaction_tracker": 0,
     "first_time": true,
-    "last_hour_uptime": "2025-12-13 00:52:05",
-    "last_hour_downtime": "2025-12-13 01:16:37",
-    "last_uptime_count": 0,
+    "last_hour_uptime": "2026-08-18 09:57:15",
+    "last_hour_downtime": "2026-08-18 14:04:20",
+    "last_uptime_count": 247.08,
     "correct_power_off": true,
-    "last_phrase_type": "",
-    "last_phrase_index": "",
-    "log_size": 3,
+    "startup_errors": 0,
+    "last_phrase_type": "BYE",
+    "last_phrase_index": "7",
+    "lasT_banter_index": "0",
+    "log_size": 5151,
     "session_count": 0,
     "apps_expected_at_start": [
-    ],
-    "apps_recently_used": {
-    },
+     ],
+    "apps_recently_used": {},
     "ignored_apps": {
+
     },
     "silenced_apps": {
     },
@@ -33,5 +38,32 @@
     "suggestion_apps": [],
     "make_backup": false,
     "restore_backup": false,
-    "last_backup_session_ID": ""
+    "last_backup_session_ID": "",
+    "system_alert_notification_mute_flag": {
+        "cpu": false,
+        "ram": false,
+        "disk": false,
+        "network": false,
+        "trash": false,
+        "download": false
+    },
+    "system_alert_threshold_flag": {
+        "cpu": 85,
+        "ram": 90,
+        "disk": 90,
+        "network": 90,
+        "trash": 2048,
+        "download": 20
+    },
+    "api_mode": false,
+    "dashboard_config": {
+        "bg_color": "#100A00",
+        "title_font_color": "#FF7300",
+        "title_font_size": 12,
+        "label_font_color": "#914B0B",
+        "label_font_size": 10,
+        "lable_subtext_font_size": 8,
+        "footer_font_size": 8,
+        "font_type": "Unispace"
+    }
 }

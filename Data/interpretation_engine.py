@@ -11,6 +11,8 @@ vocabulary = {}
 word_to_token = {}
 intent_map = {}
 
+#_________________________________________________________________________________________________________________________
+#____________________________________________________ASSETS HANDLER_______________________________________________________
 def vocabulary_load():
     global vocabulary
     global word_to_token
@@ -42,7 +44,44 @@ def intent_map_load():
     except json.JSONDecodeError as e:
         log.data_collection("INTERPRETATION ENGINE", "ERROR", f"JSON parse error: {e}")
         return ("Malformed intent map file", 1)
-
+#_________________________________________________________________________________________________________________________
+#______________________________________________________API HANDLER________________________________________________________
+def map_intent_to_response(intent_id: str) -> str:
+    if intent_id is None:
+        return "ERROR"
+    intent_id = intent_id.upper()
+    response_exceptions = {
+            "INTENT_QUERY_SELF",
+            "INTENT_QUERY_STATUS",
+            "INTENT_QUERY_TIME",
+            "INTENT_REPORT_SELF_INTENT",
+            "INTENT_REPORT_SELF_RECENT_LOGS",
+            "INTENT_PING_SITE",
+            "INTENT_QUERY_LAST_BACKUP"
+            }
+    if intent_id in response_exceptions:
+        return "EXCEPTION"
+    else:
+        if intent_id.startswith(("INTENT_RUN_", "INTENT_OPEN_", "INTENT_SET_","INTENT_BUILD_","INTENT_SSH_", "INTENT_CORRECT_")) or intent_id.endswith(("_CMD","_BATCH","_PROGRAM","_BACKUP")):
+            return "EXECUTION"
+        if intent_id.startswith("INTENT_STOP_"):
+            return "BYE"
+        if intent_id.startswith(("INTENT_TELL_", "INTENT_JOKE_")):
+            return "JOKE"
+        if intent_id == "INTENT_QUERY_FEATURES":
+            return "FEATURES"
+        if intent_id.endswith(("_OVERRIDE1", "_OVERRIDE2")):
+            return "DEBUG"
+        if intent_id.startswith("INTENT_MUTE_"):
+            return "SILENT"
+        if intent_id.startswith("INTENT_TALK_"):
+            return "TALK"
+        if intent_id.endswith("_NEW_VOCAB"):
+            return "VOCAB"
+        
+        return "EXECUTION"
+#_________________________________________________________________________________________________________________________
+#_______________________________________________INTERPRETATION HANDLER____________________________________________________
 def phrase_tokenizer(usr_phrase):
     log.data_collection("INTERPRETATION ENGINE", "TOKENIZE", f"Tokenizing phrase: {usr_phrase.upper()}")
     tokens = []
@@ -52,6 +91,8 @@ def phrase_tokenizer(usr_phrase):
             token = word_to_token[word]
             if "ACTION.OPEN" in token:
                 token = "ACTION.OPEN"
+            if "ACTION.CREATE" in token:
+                token = "ACTION.CREATE"
             if "OBJECT.SELF" in token:
                 token = "OBJECT.SELF"
             tokens.append(token)
@@ -86,10 +127,12 @@ def interpret_tokens(phrase):
         
     log.data_collection("INTERPRETATION ENGINE", "DETECT INTENT", "No intent matched after checking all possibilities.")
     return (None)
-
+#_________________________________________________________________________________________________________________________
+#____________________________________________________INTENT HANDLER_______________________________________________________
 def _check_routine_existance(intent_name):
     global intent_map
-    if intent_name in intent_map:
+    global short_memory_path
+    if intent_name in intent_map or intent_name in short_memory_path:
         return True
     else:
         return False
@@ -134,8 +177,60 @@ def save_new_routine():
             log.data_collection("INTERPRETATION ENGINE", "SAVE ROUTINE", "No new intent found.")
     except Exception as e:
         log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error saving new intent: {e}")
-        
-def save_new_vocabulary(category_subcategory_word):
+
+    
+def get_all_intents():
+    global intent_map
+    all_current_intents = []
+    for intent_name, intent_data in intent_map.items():
+        all_current_intents.append(intent_name)
+    return all_current_intents
+
+def get_single_intent(intent_name):
+    global intent_map
+    if intent_name in intent_map:
+        return intent_map[intent_name]
+    else:
+        return None
+
+def delete_intent(intent_name):
+    global intent_map
+    try:
+        if intent_name in intent_map:
+            del intent_map[intent_name]
+            log.data_collection("INTERPRETATION ENGINE", "DELETE INTENT", f"Intent {intent_name} deleted.")
+        else:
+            log.data_collection("INTERPRETATION ENGINE", "DELETE INTENT", f"Intent {intent_name} not found.")
+    except Exception as e:
+        log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error deleting intent: {e}")
+#_________________________________________________________________________________________________________________________
+#_________________________________________________VOCABULARY HANDLER______________________________________________________
+def get_all_vocab_classifications():
+    global vocabulary
+    all_current_vocab = []
+    for category, subdict in vocabulary.items():
+        if isinstance(subdict, dict):
+            vocab_cat_buffer = [f"{category}.{subcat}" for subcat in subdict.keys()]
+            line = f"{category}: " + ", ".join(vocab_cat_buffer)
+            all_current_vocab.append(line)
+    return all_current_vocab
+
+def delete_vocabulary(category_subcategory_word):
+    global vocabulary
+    global vocabulary_path
+    category, subcategory, word = category_subcategory_word.split(".")
+    try:
+        if word in vocabulary[category][subcategory]:
+            vocabulary[category][subcategory].remove(word)
+            with open(vocabulary_path, 'w', encoding='utf-8') as vocab_file:
+                json.dump(vocabulary, vocab_file, indent=4)
+            log.data_collection("INTERPRETATION ENGINE", "DELETE VOCAB", f"Word {word} deleted from category {category}.{subcategory}")
+        else:
+            log.data_collection("INTERPRETATION ENGINE", "DELETE VOCAB", f"Word {word} not found in category {category}.{subcategory}")
+    except Exception as e:
+        log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error deleting vocabulary: {e}")
+
+def _save_vocabulary(category_subcategory_word):
     global vocabulary
     global vocabulary_path
     category, subcategory, word = category_subcategory_word.split(".")
@@ -154,58 +249,50 @@ def save_new_vocabulary(category_subcategory_word):
             log.data_collection("INTERPRETATION ENGINE", "SAVE VOCAB", f"New word learned {word} in category {category}.{subcategory}")
     except Exception as e:
         log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error saving vocabulary: {e}")
-        
-def flush_memory():
-    global intent_map
-    intent_map.clear()
-    log.data_collection("INTERPRETATION ENGINE", "FLUSH", "Intent map flushed from runtime memory.")
-    
-def get_all_intents():
-    global intent_map
-    all_current_intents = []
-    for intent_name, intent_data in intent_map.items():
-        all_current_intents.append(intent_name)
-    return all_current_intents
 
-def get_single_intent(intent_name):
-    global intent_map
-    if intent_name in intent_map:
-        return intent_map[intent_name]
-    else:
-        return None
-
-def get_all_vocab_classifications():
-    global vocabulary
-    all_current_vocab = []
-    for category, subdict in vocabulary.items():
-        if isinstance(subdict, dict):
-            vocab_cat_buffer = [f"{category}.{subcat}" for subcat in subdict.keys()]
-            line = f"{category}: " + ", ".join(vocab_cat_buffer)
-            all_current_vocab.append(line)
-    return all_current_vocab
-
-def delete_intent(intent_name):
-    global intent_map
+def save_new_vocab(_):
     try:
-        if intent_name in intent_map:
-            del intent_map[intent_name]
-            log.data_collection("INTERPRETATION ENGINE", "DELETE INTENT", f"Intent {intent_name} deleted.")
-        else:
-            log.data_collection("INTERPRETATION ENGINE", "DELETE INTENT", f"Intent {intent_name} not found.")
+        print("Zorya: What is the new word?")
+        new_word = input("You: ").strip(" ").lower()
+        if not new_word:
+            print("Zorya: You dont expect me to believe your 'word' exists, right?")
+            return
+        print("Zorya: Fine. What category does this alleged word belong to?")
+        print("Zorya: Here are the ones I *already* know, not that you checked before asking:")
+        all_categories = get_all_vocab_classifications()
+        for cat in all_categories:
+            print(cat)
+        category = input("You: ")
+        category = category.strip().upper()
+        if "." not in category:
+            print("Zorya: That's not a category. That's... whatever that is. Try again when you're coherent.")
+            return
+        vocab_param = f"{category}.{new_word}"
+        _save_vocabulary(vocab_param)
+        print("Zorya: Well, congrats, at least you didn't break me this time.")
+        moem.self_alter_mood_new_words()
     except Exception as e:
-        log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error deleting intent: {e}")
-
-def delete_vocabulary(category_subcategory_word):
-    global vocabulary
-    global vocabulary_path
-    category, subcategory, word = category_subcategory_word.split(".")
+        log.data_collection("SYSTEM", "ERROR", f"Error saving new vocabulary: {e}")
+        print("Zorya: I'm not sure what happened, but definetly wasn't supposed to. Try again with the brain on.")
+#_________________________________________________________________________________________________________________________
+#______________________________________________STALE INTENTS SANITIZER____________________________________________________
+def sanitize_stale_program_intents(known_programs):
     try:
-        if word in vocabulary[category][subcategory]:
-            vocabulary[category][subcategory].remove(word)
-            with open(vocabulary_path, 'w', encoding='utf-8') as vocab_file:
-                json.dump(vocabulary, vocab_file, indent=4)
-            log.data_collection("INTERPRETATION ENGINE", "DELETE VOCAB", f"Word {word} deleted from category {category}.{subcategory}")
+        stale_sanitized_intents = []
+        for intent_key in list(intent_map.keys()):
+            if intent_key.startswith("INTENT_OPEN_") and intent_map[intent_key]["action_function"] == "call_program":
+                program_name = intent_map[intent_key]["parameters"]
+                if program_name not in known_programs:
+                    delete_intent(intent_key)
+                    stale_sanitized_intents.append(intent_key)
+        if stale_sanitized_intents:
+            with open(intent_map_path, 'w', encoding='utf-8') as intent_map_file:
+                json.dump(intent_map, intent_map_file, indent=4)
+            log.data_collection("INTERPRETATION ENGINE", "SANITIZE INTENTS", f"Sanitized stale intents: {stale_sanitized_intents}")
+            return (f"Sanitized intents: {stale_sanitized_intents}",0)
         else:
-            log.data_collection("INTERPRETATION ENGINE", "DELETE VOCAB", f"Word {word} not found in category {category}.{subcategory}")
+            log.data_collection("INTERPRETATION ENGINE", "SANITIZE INTENTS", "No stale intents found.")
+            return ("No stale intents found.", 0)
     except Exception as e:
-        log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error deleting vocabulary: {e}")
+        log.data_collection("INTERPRETATION ENGINE", "ERROR", f"Error sanitizing stale intents: {e}")
+        return (f"Error sanitizing stale intents: {e}", 1)

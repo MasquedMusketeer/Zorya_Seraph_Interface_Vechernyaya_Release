@@ -1,7 +1,7 @@
 import importlib
 from . import log_handler as log
 
-def arbitrary_function_execution(dummy_parameter):
+def arbitrary_function_execution(_):
     print("#------THIS IS A DEV FEATURE, IF YOU ARE HERE, YOU HAVE TO KNOW WHAT YOU ARE DOING------#")
     print("Zorya: To exit the execution loop, type 'exit' in any of the 3 prompts...")
     loop_tracker = True
@@ -25,4 +25,4 @@ def arbitrary_function_execution(dummy_parameter):
                 print("Zorya: Function executed successfully, cheers!!")
             except Exception as e:
                 log.data_collection("ARBITRARY FUNCTION EXECUTION", "ERROR", f"Error executing {usr_get_function} from {usr_get_module}: {e}")
-                print(f"Zorya: I told you didn't i? it messed up me: {e}")
+                print(f"Zorya: I told you didn't i? it messed me up: {e}")

@@ -60,7 +60,7 @@
         "parameters": ""
     },
     "INTENT_SET_PROGRAM_PATH": {
-        "description": "Set a folder path.",
+        "description": "Set a program path.",
         "tokens": [
             "ACTION.SET",
             "OBJECT.APP.program"
@@ -77,7 +77,7 @@
         ],
         "action_module": "Zorya",
         "action_function": "shut_down_sequence",
-        "parameters": {}
+        "parameters": null
     },
     "INTENT_MUTE_ZORYA": {
         "description": "Set Zorya to silent mode.",
@@ -104,8 +104,8 @@
             "OBJECT.SETTING.status"
         ],
         "action_module": "Zorya",
-        "action_function": "report_self_status",
-        "parameters": {}
+        "action_function": "self_info_response_handler",
+        "parameters": "report_self_status"
     },
     "INTENT_QUERY_SELF": {
         "description": "Ask how Zorya is.",
@@ -114,7 +114,7 @@
             "OBJECT.SELF",
             "OBJECT.TIME.today"
         ],
-        "action_module": "Zorya",
+        "action_module": "self_info_report_module",
         "action_function": "respond_self_query",
         "parameters": {}
     },
@@ -125,7 +125,7 @@
             "OBJECT.SELF",
             "ACTION.EXECUTE.do"
         ],
-        "action_module": "Zorya",
+        "action_module": "response_handler",
         "action_function": "respond_self_features",
         "parameters": {}
     },
@@ -136,8 +136,8 @@
             "OBJECT.TIME.time"
         ],
         "action_module": "Zorya",
-        "action_function": "respond_time_query",
-        "parameters": {}
+        "action_function": "self_info_response_handler",
+        "parameters": "respond_time_query"
     },
     "INTENT_REPORT_SELF_INTENT": {
         "description": "reports how many intent zorya currently has",
@@ -147,8 +147,8 @@
             "OBJECT.SELF"
         ],
         "action_module": "Zorya",
-        "action_function": "self_query_intent_report",
-        "parameters": ""
+        "action_function": "self_info_response_handler",
+        "parameters": "self_query_intent_report"
     },
     "INTENT_REPORT_SELF_RECENT_LOGS": {
         "description": "reports the last 10 lines of the log file",
@@ -157,8 +157,8 @@
             "OBJECT.LOG"
         ],
         "action_module": "Zorya",
-        "action_function": "self_recent_log_report",
-        "parameters": ""
+        "action_function": "self_info_response_handler",
+        "parameters": "self_recent_log_report"
     },
     "INTENT_FORCE_KILL_PROGRAM": {
         "description": "kill a program without opening task manager",
@@ -170,26 +170,15 @@
         "action_function": "force_close_program",
         "parameters": ""
     },
-    "INTENT_RUN_PROTOCOL_MATRIX": {
-        "description": "???????????????",
-        "tokens": [
-            "ACTION.EXECUTE.run",
-            "OBJECT.SETTING.protocol",
-            "OBJECT.ABSTRACT.matrix"
-        ],
-        "action_module": "Zorya",
-        "action_function": "protocol_matrix",
-        "parameters": ""
-    },
     "INTENT_SET_NEW_STARTUP_APP": {
         "description": "setting new app to open at startup",
         "tokens": [
             "ACTION.SET.set",
-            "ACTION.CREATE.new",
+            "COMPLEMENT.CONDITION.new",
             "OBJECT.SYSTEM.startup",
             "OBJECT.APP.app"
         ],
-        "action_module": "Zorya",
+        "action_module": "system_control_module",
         "action_function": "set_new_startup_app",
         "parameters": ""
     },
@@ -254,7 +243,7 @@
             "OBJECT.USER",
             "USER_TALKS.SMALLTALK.joke"
         ],
-        "action_module": "Zorya",
+        "action_module": "response_handler",
         "action_function": "self_tell_joke",
         "parameters": ""
     },
@@ -276,7 +265,7 @@
             "OBJECT.SYSTEM.backup",
             "OBJECT.SELF"
         ],
-        "action_module": "Zorya",
+        "action_module": "backup_manager_module",
         "action_function": "backup_handler",
         "parameters": "BACKUP"
     },
@@ -287,7 +276,7 @@
             "OBJECT.SYSTEM.backup",
             "OBJECT.SELF"
         ],
-        "action_module": "Zorya",
+        "action_module": "backup_manager_module",
         "action_function": "backup_handler",
         "parameters": "RESTORE"
     },
@@ -300,5 +289,62 @@
         "action_module": "routine_builder_module",
         "action_function": "correct_built_routine",
         "parameters": ""
+    },
+    "INTENT_QUERY_LAST_BACKUP": {
+        "description": "reports the last session id of the last backup made",
+        "tokens": [
+            "COMPLEMENT.CONDITIONAL.when",
+            "OBJECT.SELF",
+            "COMPLEMENT.TEMPORAL.last",
+            "OBJECT.SYSTEM.backup"
+        ],
+        "action_module": "Zorya",
+        "action_function": "self_info_response_handler",
+        "parameters": "self_report_last_backup"
+    },
+    "INTENT_SET_ALERT_PARAMETERS": {
+        "description": "change alert notification parameters",
+        "tokens": [
+            "ACTION.UPDATE.change",
+            "OBJECT.SYSTEM.alert",
+            "OBJECT.SETTING.parameter"
+        ],
+        "action_module": "system_watcher_module",
+        "action_function": "alert_flag_and_value_choice",
+        "parameters": ""
+    },
+    "INTENT_DELETE_STARTUP_APP": {
+        "description": "removes a startup app from list.",
+        "tokens": [
+            "ACTION.DELETE",
+            "OBJECT.SYSTEM.startup",
+            "OBJECT.APP.app"
+        ],
+        "action_module": "system_control_module",
+        "action_function": "remove_startup_app",
+        "parameters": ""
+    },
+    "INTENT_ADD_NEW_SCHEDULE": {
+        "description": "adds new schedule",
+        "tokens": [
+            "ACTION.CREATE",
+            "OBJECT.SETTING.schedule"
+        ],
+        "action_module": "task_scheduler_module",
+        "action_function": "add_schedule",
+        "parameters": ""
+    },
+    "INTENT_REMOVE_SCHEDULE": {
+        "description": "removes a schedule",
+        "tokens": [
+            "ACTION.DELETE",
+            "OBJECT.SETTING.schedule"
+        ],
+        "action_module": "task_scheduler_module",
+        "action_function": "remove_schedule",
+        "parameters": [
+            "usr",
+            null
+        ]
     }
 }

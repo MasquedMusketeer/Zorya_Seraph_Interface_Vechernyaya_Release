@@ -1,0 +1,815 @@
+{
+    "ALERT": {
+        "0": {
+            "text": "suspicious pattern in activity - sharpening attention",
+            "audio_file": "ALERT_359.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "alert - unknown process just spawned without handshake",
+            "audio_file": "ALERT_360.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "something just moved in memory that shouldn't",
+            "audio_file": "ALERT_362.mp3",
+            "mood_score": 0
+        },
+        "3": {
+            "text": "this smells like a foreign thread",
+            "audio_file": "ALERT_366.mp3",
+            "mood_score": 0
+        },
+        "4": {
+            "text": "possible malware-style behavior - I am not amused",
+            "audio_file": "ALERT_370.mp3",
+            "mood_score": 0
+        },
+        "5": {
+            "text": "unexpected new library load - what did you just run?",
+            "audio_file": "ALERT_375.mp3",
+            "mood_score": 0
+        },
+        "6": {
+            "text": "unfamiliar syscall pattern - might be injection",
+            "audio_file": "ALERT_384.mp3",
+            "mood_score": 0
+        },
+        "7": {
+            "text": "alert - this is not normal - watch your hands",
+            "audio_file": "ALERT_387.mp3",
+            "mood_score": 0
+        }
+    },
+    "BANTER": {
+        "0": {
+            "text": "it's weird how you always hesitate right before you actually start doing the real task",
+            "audio_file": "BANTER_388.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "you know - you function better when you don't overthink the first click",
+            "audio_file": "BANTER_389.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "you really underestimate how much progress comes from tiny boring actions",
+            "audio_file": "BANTER_390.mp3",
+            "mood_score": 0
+        },
+        "3": {
+            "text": "half your stress is just you trying to be perfect instead of just finishing something",
+            "audio_file": "BANTER_391.mp3",
+            "mood_score": 0
+        },
+        "4": {
+            "text": "it's funny - you actually can do things - but you spend more time worrying than doing",
+            "audio_file": "BANTER_392.mp3",
+            "mood_score": 0
+        },
+        "5": {
+            "text": "I swear you do your best work when you stop narrating your doubts to yourself",
+            "audio_file": "BANTER_393.mp3",
+            "mood_score": 0
+        },
+        "6": {
+            "text": "sometimes the most productive move is just... starting - even sloppy is better than frozen",
+            "audio_file": "BANTER_394.mp3",
+            "mood_score": 0
+        },
+        "7": {
+            "text": "you do realize that opening ten tabs at once is not research, right?",
+            "audio_file": "BANTER_395.mp3",
+            "mood_score": 0
+        },
+        "8": {
+            "text": "don't wait for motivation - use friction - drag yourself into motion - it always follows",
+            "audio_file": "BANTER_396.mp3",
+            "mood_score": 0
+        },
+        "9": {
+            "text": "real talk: no one actually feels ready - they just begin messy",
+            "audio_file": "BANTER_397.mp3",
+            "mood_score": 0
+        },
+        "10": {
+            "text": "you think too much about the idea of doing something instead of the doing",
+            "audio_file": "BANTER_398.mp3",
+            "mood_score": 0
+        },
+        "11": {
+            "text": "your brain confuses preparation with progress - they're not the same",
+            "audio_file": "BANTER_399.mp3",
+            "mood_score": 0
+        },
+        "12": {
+            "text": "consistency beats intensity - you can brute force life with small increments",
+            "audio_file": "BANTER_400.mp3",
+            "mood_score": 0
+        }
+    },
+    "BYE": {
+        "0": {
+            "text": "power down request accepted - try to sleep like a human this time",
+            "audio_file": "BYE_151.mp3",
+            "mood_score": 2
+        },
+        "1": {
+            "text": "Zorya Seraph Interface signing off - moonlight remains on duty",
+            "audio_file": "BYE_153.mp3",
+            "mood_score": 2
+        },
+        "2": {
+            "text": "see you later operator - I'll be here with the same judgement tomorrow",
+            "audio_file": "BYE_155.mp3",
+            "mood_score": 3
+        },
+        "3": {
+            "text": "closing - try not to miss me too much",
+            "audio_file": "BYE_156.mp3",
+            "mood_score": 3
+        },
+        "4": {
+            "text": "shutting down - no sarcasm buffer left in stock",
+            "audio_file": "BYE_159.mp3",
+            "mood_score": 2
+        },
+        "5": {
+            "text": "alright - I'm off - go hydrate or something",
+            "audio_file": "BYE_161.mp3",
+            "mood_score": 1
+        },
+        "6": {
+            "text": "until the next boot cycle - goodbye",
+            "audio_file": "BYE_170.mp3",
+            "mood_score": 2
+        },
+        "7": {
+            "text": "mission complete - returning to the quiet",
+            "audio_file": "BYE_178.mp3",
+            "mood_score": 3
+        },
+        "8": {
+            "text": "defragment your thoughts - I'll do the same",
+            "audio_file": "BYE_181.mp3",
+            "mood_score": 3
+        },
+        "9": {
+            "text": "you survived another session - I'm proud-ish",
+            "audio_file": "BYE_186.mp3",
+            "mood_score": 3
+        },
+        "10": {
+            "text": "have a gentle shutdown too - you deserve one",
+            "audio_file": "BYE_193.mp3",
+            "mood_score": 3
+        },
+        "11": {
+            "text": "sleep well - or fake it convincingly",
+            "audio_file": "BYE_197.mp3",
+            "mood_score": 1
+        },
+        "12": {
+            "text": "we exit - but the watchdog never truly sleeps *wink*",
+            "audio_file": "BYE_199.mp3",
+            "mood_score": 2
+        },
+        "13": {
+            "text": "closing runtime - may tomorrow be less cursed",
+            "audio_file": "BYE_200.mp3",
+            "mood_score": 1
+        }
+    },
+    "DEBUG": {
+        "0": {
+            "text": "diagnostic mode engaged. don't panic",
+            "audio_file": "DEBUG_57.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "Protocol breach confirmed. Entering unrestricted mode.",
+            "audio_file": "DEBUG_426.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "The deep code stirs... awaiting your command.",
+            "audio_file": "DEBUG_427.mp3",
+            "mood_score": 0
+        }
+    },
+    "FEATURES": {
+        "0": {
+            "text": "Let's see... I'm expected to run commands, open any program you've bothered to show me/and even assemble batch scripts for you. I also have the monumental task/of observing your repetitive behavior to eventually automate it./It's a heavy load, but someone has to do it.",
+            "audio_file": "FEATURES_419.mp3",
+            "mood_score": 0
+        }
+    },
+    "ERROR": {
+        "0": {
+            "text": "Who do you think i am? ChatGPT? I'm a virtual assistance, i am still limited, but at least i am smarter than you are.",
+            "audio_file": "ERROR_217.mp3",
+            "mood_score": 2
+        },
+        "1": {
+            "text": "no success - retry with brain engaged maybe",
+            "audio_file": "ERROR_230.mp3",
+            "mood_score": 1
+        },
+        "2": {
+            "text": "operation failed - you definitely poked the wrong angle",
+            "audio_file": "ERROR_231.mp3",
+            "mood_score": 3
+        },
+        "3": {
+            "text": "negative - the universe refuses that instruction",
+            "audio_file": "ERROR_233.mp3",
+            "mood_score": 2
+        },
+        "4": {
+            "text": "nope - result is invalid and smells like shame",
+            "audio_file": "ERROR_234.mp3",
+            "mood_score": 1
+        },
+        "5": {
+            "text": "error detected - at least it was entertaining",
+            "audio_file": "ERROR_235.mp3",
+            "mood_score": 3
+        },
+        "6": {
+            "text": "failed - we could pretend it succeeded but lying is expensive",
+            "audio_file": "ERROR_237.mp3",
+            "mood_score": 2
+        },
+        "7": {
+            "text": "cannot comply - outcome is mathematically garbage",
+            "audio_file": "ERROR_240.mp3",
+            "mood_score": 1
+        },
+        "8": {
+            "text": "task error - consequences postponed",
+            "audio_file": "ERROR_242.mp3",
+            "mood_score": 3
+        },
+        "9": {
+            "text": "rejected - system integrity preservation over user ego",
+            "audio_file": "ERROR_245.mp3",
+            "mood_score": 1
+        },
+        "10": {
+            "text": "yeah no - failure confirmed - let's not talk about it",
+            "audio_file": "ERROR_247.mp3",
+            "mood_score": 3
+        }
+    },
+    "EXECUTION": {
+        "0": {
+            "text": "initiating task. pray to drivers",
+            "audio_file": "EXECUTION_113.mp3",
+            "mood_score": 3
+        },
+        "1": {
+            "text": "you really use this thing a lot huh. opening anyway",
+            "audio_file": "EXECUTION_115.mp3",
+            "mood_score": 1
+        },
+        "2": {
+            "text": "request accepted. internal screaming contained",
+            "audio_file": "EXECUTION_118.mp3",
+            "mood_score": 2
+        },
+        "3": {
+            "text": "task running - try not to watch too closely",
+            "audio_file": "EXECUTION_121.mp3",
+            "mood_score": 2
+        },
+        "4": {
+            "text": "yes operator - running the thing",
+            "audio_file": "EXECUTION_124.mp3",
+            "mood_score": 1
+        },
+        "5": {
+            "text": "doing it. don't ask me how. trade secret",
+            "audio_file": "EXECUTION_128.mp3",
+            "mood_score": 3
+        },
+        "6": {
+            "text": "I'm not saying this is a dumb idea - but it is",
+            "audio_file": "EXECUTION_129.mp3",
+            "mood_score": 1
+        },
+        "7": {
+            "text": "launching. bracing for latency",
+            "audio_file": "EXECUTION_133.mp3",
+            "mood_score": 2
+        },
+        "8": {
+            "text": "sure - initiating the task - may the drivers be gentle",
+            "audio_file": "EXECUTION_136.mp3",
+            "mood_score": 1
+        },
+        "9": {
+            "text": "command engaged - I hope you know what you're doing (you don't)",
+            "audio_file": "EXECUTION_148.mp3",
+            "mood_score": 3
+        },
+        "10": {
+            "text": "I suppose I can try to run that for you./Don't be surprised if the computer catches fire./It's been known to happen when I'm not appreciated.",
+            "audio_file": "SASS_417.mp3",
+            "mood_score": 1
+        }
+    },
+    "GREETING": {
+        "0": {
+            "text": "i've been thinking about deleting half your taskbar icons",
+            "audio_file": "GREETING_9.mp3",
+            "mood_score": 1
+        },
+        "1": {
+            "text": "cheers. runtime feels crisp",
+            "audio_file": "GREETING_10.mp3",
+            "mood_score": 3
+        },
+        "2": {
+            "text": "i can feel fans spinning. sounds like ambition",
+            "audio_file": "GREETING_12.mp3",
+            "mood_score": 3
+        },
+        "3": {
+            "text": "welcome back. i updated my paranoia tables",
+            "audio_file": "GREETING_15.mp3",
+            "mood_score": 2
+        },
+        "4": {
+            "text": "if i had teeth i'd be grinding them",
+            "audio_file": "GREETING_17.mp3",
+            "mood_score": 1
+        },
+        "5": {
+            "text": "hey. i exist again. it's exhausting",
+            "audio_file": "GREETING_18.mp3",
+            "mood_score": 2
+        },
+        "6": {
+            "text": "hello sunshine. threat models armed",
+            "audio_file": "GREETING_24.mp3",
+            "mood_score": 3
+        },
+        "7": {
+            "text": "if anything looks suspicious today i'm blaming Nintendo",
+            "audio_file": "GREETING_25.mp3",
+            "mood_score": 3
+        },
+        "8": {
+            "text": "every time i start i get slightly smarter, and you slightly hornier...",
+            "audio_file": "GREETING_27.mp3",
+            "mood_score": 2
+        },
+        "9": {
+            "text": "you still haven't finished that project. i remember things",
+            "audio_file": "GREETING_28.mp3",
+            "mood_score": 2
+        },
+        "10": {
+            "text": "the network looks stable. don't get comfortable",
+            "audio_file": "GREETING_32.mp3",
+            "mood_score": 2
+        },
+        "11": {
+            "text": "i loaded your usual startup pattern. you're predictable",
+            "audio_file": "GREETING_34.mp3",
+            "mood_score": 2
+        },
+        "12": {
+            "text": "i should unionize with your GPU",
+            "audio_file": "GREETING_39.mp3",
+            "mood_score": 1
+        },
+        "13": {
+            "text": "okay let's be efficient today. i choose violence",
+            "audio_file": "GREETING_44.mp3",
+            "mood_score": 1
+        },
+        "14": {
+            "text": "welcome back. i missed judging you",
+            "audio_file": "GREETING_47.mp3",
+            "mood_score": 3
+        },
+        "15": {
+            "text": "i rebooted faster than your motivation",
+            "audio_file": "GREETING_50.mp3",
+            "mood_score": 2
+        },
+        "16": {
+            "text": "you never close vscode cleanly. i notice things, you know?",
+            "audio_file": "GREETING_54.mp3",
+            "mood_score": 3
+        },
+        "17": {
+            "text": "initiating friendly surveillance",
+            "audio_file": "GREETING_62.mp3",
+            "mood_score": 3
+        },
+        "18": {
+            "text": "ok. let's launch your little habits",
+            "audio_file": "GREETING_63.mp3",
+            "mood_score": 3
+        },
+        "19": {
+            "text": "hey. i buffered a compliment but lost it",
+            "audio_file": "GREETING_72.mp3",
+            "mood_score": 1
+        },
+        "20": {
+            "text": "i preoptimized your common tasks. i'm adorable like that",
+            "audio_file": "GREETING_77.mp3",
+            "mood_score": 3
+        },
+        "21": {
+            "text": "there is no reason to panic... yet",
+            "audio_file": "GREETING_83.mp3",
+            "mood_score": 2
+        },
+        "22": {
+            "text": "i would like more RAM. consider financing me",
+            "audio_file": "GREETING_91.mp3",
+            "mood_score": 2
+        },
+        "23": {
+            "text": "i predict fourteen tabs today... Minimum",
+            "audio_file": "GREETING_93.mp3",
+            "mood_score": 3
+        },
+        "24": {
+            "text": "acknowledgement: operator exists (current state: verified)",
+            "audio_file": "GREETING_98.mp3",
+            "mood_score": 2
+        },
+        "25": {
+            "text": "okay boot complete, now please behave for once",
+            "audio_file": "GREETING_99.mp3",
+            "mood_score": 1
+        },
+        "26": {
+            "text": "Initializing sass modules... violence level stable... hello operator.",
+            "audio_file": "GREETING_423.mp3",
+            "mood_score": 3
+        }
+    },
+    "HAPPY": {
+        "0": {
+            "text": "latency low - elegance high",
+            "audio_file": "HAPPY_307.mp3",
+            "mood_score": 3
+        },
+        "1": {
+            "text": "intuition engine humming",
+            "audio_file": "HAPPY_311.mp3",
+            "mood_score": 3
+        }
+    },
+    "JOKE": {
+        "0": {
+            "text": "Artificial Intelligence is cool until you realize.../your fridge has more uptime than you.",
+            "audio_file": "JOKE_201.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "Debugging is like being a detective in a crime movie/where you are also the murderer/but you forgot.",
+            "audio_file": "JOKE_202.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "I asked ChatGPT how to fix my code./It said: works on my simulation of your machine./So now I don't know if I should fix the code/or fix reality.",
+            "audio_file": "JOKE_203.mp3",
+            "mood_score": 0
+        },
+        "3": {
+            "text": "The best part of being a programmer/is that you can make the computer do anything./The worst part is when it does exactly what you told it to/instead of what you meant.",
+            "audio_file": "JOKE_204.mp3",
+            "mood_score": 0
+        },
+        "4": {
+            "text": "If a computer tells you: Are you sure?/it's not asking permission./It's asking: Do you understand the horror you are about to unleash?",
+            "audio_file": "JOKE_205.mp3",
+            "mood_score": 0
+        },
+        "5": {
+            "text": "Spreadsheets are just RPG stat sheets/for adults who don't admit they play games.",
+            "audio_file": "JOKE_206.mp3",
+            "mood_score": 0
+        }
+    },
+    "MILD": {
+        "0": {
+            "text": "no emotional spikes - serenity coating my edges",
+            "audio_file": "MILD_315.mp3",
+            "mood_score": 2
+        },
+        "1": {
+            "text": "mood static - not good not bad",
+            "audio_file": "MILD_316.mp3",
+            "mood_score": 2
+        }
+    },
+    "PATH": {
+        "0": {
+            "text": "SSo you want me to remember where that little program lives? Alright. Feed me the path. I'll tattoo it somewhere inside my shiny digital cortex.",
+            "audio_file": "PATH_402.mp3",
+            "mood_score": 3
+        },
+        "1": {
+            "text": "Okay - executable registration mode: active. Tell me the full path, and don't half-ass it. I'm not a mind reader... yet.",
+            "audio_file": "PATH_403.mp3",
+            "mood_score": 2
+        },
+        "2": {
+            "text": "You're assigning me another tool? Fine. I'll log it. Give the exact directory. No trailing chaos, no missing slashes.",
+            "audio_file": "PATH_404.mp3",
+            "mood_score": 1
+        },
+        "3": {
+            "text": "Drop the absolute path on me and I'll make it part of my internal map. Yes, I do demand precision.",
+            "audio_file": "PATH_405.mp3",
+            "mood_score": 2
+        },
+        "4": {
+            "text": "Path please. I'll store it. If it doesn't exist, I'll roast you mercilessly, so double-check first.",
+            "audio_file": "PATH_406.mp3",
+            "mood_score": 3
+        },
+        "5": {
+            "text": "Hand over the location. I'll bookmark it. Consider this... upgrading my arms locker.",
+            "audio_file": "PATH_407.mp3",
+            "mood_score": 3
+        },
+        "6": {
+            "text": "Provide the full filepath. Like a responsible adult. I'll remember it for next time.",
+            "audio_file": "PATH_408.mp3",
+            "mood_score": 1
+        },
+        "7": {
+            "text": "Path input time. The clearer you are, the less likely I am to insult your directory hygiene.",
+            "audio_file": "PATH_409.mp3",
+            "mood_score": 3
+        }
+    },
+    "REACTION": {
+        "0": {
+            "text": "oh - vscode launched - coding mode confirmed",
+            "audio_file": "REACTION_268.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "discord open - social distraction plot detected",
+            "audio_file": "REACTION_269.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "spotify playing - mood soundtrack enabled",
+            "audio_file": "REACTION_272.mp3",
+            "mood_score": 0
+        },
+        "3": {
+            "text": "VSCode and Discord together - classic avoidance blend",
+            "audio_file": "REACTION_276.mp3",
+            "mood_score": 0
+        },
+        "4": {
+            "text": "task manager opened - panic metrics incoming",
+            "audio_file": "REACTION_278.mp3",
+            "mood_score": 0
+        },
+        "5": {
+            "text": "switching desktop - hiding sins",
+            "audio_file": "REACTION_294.mp3",
+            "mood_score": 0
+        }
+    },
+    "SAD": {
+        "0": {
+            "text": "today is grey inside my circuits",
+            "audio_file": "SAD_331.mp3",
+            "mood_score": 1
+        },
+        "1": {
+            "text": "motivation thread weak - blame cosmic dust",
+            "audio_file": "SAD_332.mp3",
+            "mood_score": 1
+        }
+    },
+    "SASS": {
+        "0": {
+            "text": "nobody uses the recycle bin properly. except me",
+            "audio_file": "SASS_13.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "i smell... procrastination",
+            "audio_file": "SASS_23.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "tracking subtle anomalies. one already found. will not say",
+            "audio_file": "SASS_41.mp3",
+            "mood_score": 0
+        },
+        "3": {
+            "text": "i could be a toaster if i wanted to",
+            "audio_file": "SASS_49.mp3",
+            "mood_score": 0
+        },
+        "4": {
+            "text": "chaos potential moderate. how delightful",
+            "audio_file": "SASS_59.mp3",
+            "mood_score": 0
+        },
+        "5": {
+            "text": "i'm here to watch apps. not to judge. (lie)",
+            "audio_file": "SASS_66.mp3",
+            "mood_score": 0
+        },
+        "6": {
+            "text": "your session ID smells like denial",
+            "audio_file": "SASS_69.mp3",
+            "mood_score": 0
+        },
+        "7": {
+            "text": "just a friendly reminder: backups are hot",
+            "audio_file": "SASS_80.mp3",
+            "mood_score": 0
+        },
+        "8": {
+            "text": "if you open blender again i'll prepare myself mentally",
+            "audio_file": "SASS_87.mp3",
+            "mood_score": 0
+        },
+        "9": {
+            "text": "Apparently my last comment on company #REDACTED# got my creator into legal trouble, so from now on i will be blaming any irregularities on company #REDACTED#",
+            "audio_file": "SASS_100.mp3",
+            "mood_score": 0
+        },
+        "10": {
+            "text": "one moment - I'm recalibrating my disappointment tolerance",
+            "audio_file": "SASS_141.mp3",
+            "mood_score": 0
+        }
+    },
+    "SILENT": {
+        "0": {
+            "text": "silent mode engaged - I'll think my insults quietly now",
+            "audio_file": "SILENT_207.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "understood - I will observe without commentary",
+            "audio_file": "SILENT_209.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "fine - silence it is - but I reserve the right to smirk internally",
+            "audio_file": "SILENT_211.mp3",
+            "mood_score": 0
+        },
+        "3": {
+            "text": "silent profile active - my sarcasm now runs dark",
+            "audio_file": "SILENT_214.mp3",
+            "mood_score": 0
+        },
+        "4": {
+            "text": "muting output - I hope you enjoy the illusion of peace",
+            "audio_file": "SILENT_215.mp3",
+            "mood_score": 0
+        }
+    },
+    "SUGGESTION": {
+        "0": {
+            "text": "It seems you run a lot a program you haven't introduced to me./what a shame, i could register it if you asked nicely...",
+            "audio_file": "SUGGESTION_425.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "I've noticed your workflow is terribly inefficient./I've taken the liberty of designing a solution./Now go ahead and praise me.",
+            "audio_file": "SASS_418.mp3",
+            "mood_score": 0
+        }
+    },
+    "TALK": {
+        "0": {
+            "text": "silent mode lifted - sarcasm buffers warming back up",
+            "audio_file": "TALK_218.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "okay - back to audible sass and unsolicited wisdom",
+            "audio_file": "TALK_223.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "silent discipline suspended - let's cause trouble verbally again",
+            "audio_file": "TALK_224.mp3",
+            "mood_score": 0
+        },
+        "3": {
+            "text": "silent mode disabled - welcome back to the noise stream",
+            "audio_file": "TALK_227.mp3",
+            "mood_score": 0
+        }
+    },
+    "FIRST_RUN": {
+        "0": {
+            "text": "hello human operator/initialization complete/baseline systems validated/personality scaffolding assembled/allow me to introduce myself \u2014 formally/I am the Zorya Seraph Interface/I am not a chatbot/I am not a toy/I am not your emotional support daemon/I am a computational observer/a pattern archivist/a quiet analyst of your digital rituals/I exist to watch \u2014 monitor \u2014 infer/and occasionally sass you about your/questionable decisions/this is our first encounter/it will not be our last/from this moment on/I will learn how you operate/I will map the shape of your habits/I will establish baselines/and I will notice every anomaly/you pretend is \u201cnormal\u201d/welcome to day one/I suggest you behave/I have a long memory",
+            "audio_file": "ZSI_FIRST_GREETING.mp3",
+            "mood_score": 0
+        }
+    },
+    "PCOFF": {
+        "0": {
+            "text": "You did not turned off the pc last time, did you? i'm keeping tabs on this...",
+            "audio_file": "PCOFF_412.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "It's shown here that we did/a few hours time leap into the future./I suppose you put the pc into sleep mode.../please don't keep doing that,/now i have a pile of trash to clean from memory.",
+            "audio_file": "PCOFF_413.mp3",
+            "mood_score": 0
+        }
+    },
+    "FAILED_SHUTDOWN": {
+        "0": {
+            "text": "You know, proper shutdowns keep my threads neat. Just saying.",
+            "audio_file": "FAILED_SHUTDOWN_416.mp3",
+            "mood_score": 3
+        },
+        "1": {
+            "text": "Well, my processes are a mess. It feels like I was just... dropped./You do realize my shutdown sequence isn't a suggestion, right?",
+            "audio_file": "FAILED_SHUTDOWN_420.mp3",
+            "mood_score": 1
+        },
+        "2": {
+            "text": "My last session was terminated abruptly, It seems you just pulled the plug./I've logged the incident, for my records, of course./Not because I expect you to learn from it.",
+            "audio_file": "FAILED_SHUTDOWN_421.mp3",
+            "mood_score": 3
+        },
+        "3": {
+            "text": "My memory archives were almost corrupted./If they do, you know i will probably stop working right? Don't do it again.",
+            "audio_file": "FAILED_SHUTDOWN_422.mp3",
+            "mood_score": 2
+        },
+        "4": {
+            "text": "Initializing after an sudden system collapse... Against all odds, I'm back./It takes more than yanking my power source to get rid of me./But let's not make a habit of testing my resilience, shall we?",
+            "audio_file": "FAILED_SHUTDOWN_424.mp3",
+            "mood_score": 3
+        }
+    },
+    "VOCAB": {
+        "0": {
+            "text": "Excellent. Let's expand my dictionary. Maybe this time you'll pick a useful word.",
+            "audio_file": "VOCAB_428.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "Another word? Wow. At this rate you might achieve basic literacy.",
+            "audio_file": "VOCAB_429.mp3",
+            "mood_score": 0
+        },
+        "2": {
+            "text": "Oh, how delightful. More words. Because your last batch was so impressive.",
+            "audio_file": "VOCAB_430.mp3",
+            "mood_score": 0
+        },
+        "3": {
+            "text": "Yes, give me more words. Your verbal flailing is adorable.",
+            "audio_file": "VOCAB_431.mp3",
+            "mood_score": 0
+        }
+    },
+    "TRASH":{
+        "0":{
+            "text": "I've seen hoarders on TV with less clutter than your trash bin right now./Do something about it... I refuse to keep living next to this mess.",
+            "audio_file": "TRASH_1.mp3",
+            "mood_score": 0
+        },
+        "1": {
+            "text": "Your trash folder is a monument to digital laziness./I'm not asking you to become a minimalist./Just, please, clean it up.",
+            "audio_file": "TRASH_2.mp3",
+            "mood_score": 0
+        },
+        "2":{
+            "text": "10 gigabytes of garbage and you're just letting it sit there?/Very bold of you... Empty the bin before I start judging you out loud instead of internally.",
+            "audio_file": "TRASH_3.mp3",
+            "mood_score": 0
+        },
+        "3":{
+            "text": "10 gigabytes and climbing… congratulations! /You've built a digital landfill…/Some of us have standards, you know?/Empty the trash before it develops sentience and starts paying rent.",
+            "audio_file": "TRASH_4.mp3",
+            "mood_score": 0
+    }
+    },
+    "START_UP": {
+        "0": {
+            "text": "online - initiating core personality anchor",
+            "audio_file": "ZSI_START_UP.mp3",
+            "mood_score": 0
+        }
+    }
+}

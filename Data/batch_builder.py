@@ -1,5 +1,6 @@
 import os
 from . import log_handler as log
+from . import mood_engine_module as moem
 
 _batch_folder = os.path.join(os.path.dirname(__file__), "Built_Batches")
 _batch_command_list = []
@@ -18,19 +19,20 @@ def _save_batch_commands(batch_name):
         for command in _batch_command_list:
             batch_file.write(f"{command}\n")
 
-def batch_orchestrator(dummy_parameter):
+def batch_orchestrator(_):
     global _batch_command_list
     orchestrator_operation = True
     try:
         while orchestrator_operation:
             print("Zorya: Type bellow one line of the batch file you want to create,")
-            print(" then press Enter to continue. When you are done, type 'SAVE BATCH'.")
+            print(" then press Enter to continue. When you are done, type 'save batch'.")
             user_input = input("You: ")
             if user_input.upper() == "SAVE BATCH":
                 batch_name = input("Zorya: Enter the name for the batch file (without extension, use _ for spaces in the name)\nYou: ")
                 _save_batch_commands(batch_name)
                 print(f"Zorya: Batch file '{batch_name}.bat' saved successfully.")
                 log.data_collection("BATCH", "SAVE", f"Batch file '{batch_name}.bat' created with {_batch_command_list.__len__()} commands.")
+                moem.self_alter_mood_feeling_useful()
                 orchestrator_operation = False
                 _batch_command_list.clear()
             else:

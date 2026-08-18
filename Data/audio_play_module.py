@@ -1,33 +1,11 @@
-try:
-    import pygame as pg
-except ImportError:
-    print("Pygame not found, installing...")
-    import pip
-    pip.main(['install', 'pygame'])
-    import pygame as pg
-import json
+import pygame as pg
 import os
 from . import log_handler as log
 from . import mood_engine_module as moem
 
 pg.mixer.init()
-audio_index = {}
 audio_path = os.path.join(os.path.dirname(__file__),"Audio_lines")
-index_path = os.path.join(os.path.dirname(__file__),"Long_term_memory","audio_dictionary.json")
 talk_flag = True
-
-def load_audio_index():
-    global audio_index
-    try:
-        with open(index_path, 'r', encoding='utf-8') as index_file:
-            audio_index = json.load(index_file)
-        return ("Audio index loaded", 0)
-    except FileNotFoundError:
-        log.data_collection("AUDIO", "ERROR", "Audio index file not found.")
-        return ("Bad audio file path", 1)
-    except json.JSONDecodeError as e:
-        log.data_collection("AUDIO", "ERROR", f"JSON parse error: {e}")
-        return ("Malformed audio index file", 1)
 
 def _play_audio(file_name):
     try:
@@ -39,11 +17,10 @@ def _play_audio(file_name):
     except FileNotFoundError:
         log.data_collection("AUDIO", "ERROR", f"Audio file not found: {file_name}")
 
-def play_line(category: str, index: str):
+def play_line(file_name: str):
     global talk_flag
     if talk_flag == True:
         try:
-            file_name = audio_index.get(category, {}).get(index)
             if file_name:
                 _play_audio(file_name)
         except Exception as e:

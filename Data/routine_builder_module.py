@@ -4,6 +4,7 @@ import os
 from . import log_handler as log
 from . import interpretation_engine as interpreter
 from . import system_control_module as scm
+from . import mood_engine_module as moem
 
 buffer_intent_file_path = os.path.join(os.path.dirname(__file__), "Long_term_memory","routine_buffer.json")
 buffer_intent = {}
@@ -13,18 +14,20 @@ def load_short_memory():
     try:
         with open(buffer_intent_file_path, 'r', encoding='utf-8') as buffer_file:
             buffer_intent = json.load(buffer_file)
-        log.data_collection("SHORT MEMORY", "LOAD", "Routine buffer loaded")
         return ("Routine buffer loaded", 0)
     except FileNotFoundError:
-        log.data_collection("SHORT MEMORY", "ERROR", "Routine buffer file not found")
+        log.data_collection("ROUTINE BUILDER", "ERROR", "Routine buffer file not found")
         return ("Bad program paths file path", 1)
     except json.JSONDecodeError as e:
-        log.data_collection("SHORT MEMORY", "ERROR", f"JSON parse error: {e}")
+        log.data_collection("ROUTINE BUILDER", "ERROR", f"JSON parse error: {e}")
         return ("Malformed program paths file", 1)
     
 def self_build_routine(routine_name,routine_description,tokens,routine_action_module,routine_action_function,routine_parameter):
     try:
         global buffer_intent
+        if interpreter._check_routine_existance(routine_name):
+            log.data_collection("ROUTINE BUILDER", "BUILD", "Routine already exists")
+            return
         buffer_intent.update({
                         routine_name: {
                             "description": routine_description,
@@ -98,12 +101,12 @@ def build_routine(usr_self_flag):
             with open(buffer_intent_file_path, 'w', encoding='utf-8') as buffer_file:
                 json.dump(buffer_intent, buffer_file, indent=4) 
             log.data_collection("ROUTINE BUILDER", "BUILD", f"Routine built: {routine_name}")
-            
+            moem.self_alter_mood_feeling_useful()
     except Exception as e:
         log.data_collection("ROUTINE BUILDER", "ERROR", f"Error building routine: {e}")
         print(f"Zorya: Error building routine: {e}")
         
-def correct_built_routine(dummy_param):
+def correct_built_routine(_):
     def filter_intents(routine_type, all_intents):
         if routine_type in ["folder", "program"]:
             return [intent for intent in all_intents if "INTENT_OPEN" in intent]

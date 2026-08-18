@@ -26,7 +26,7 @@ def _run_system_command(command):
         print(f"\n--- Execution Error ---\n{error_message}\n-----------------------\n")
         log.data_collection("COMMAND RUNNER", "ERROR", error_message)
 
-def load_cmd(dummy_parameter):
+def load_cmd(_):
     running_flag = True
     log.data_collection("COMMAND RUNNER", "START", "Command runner started.")
     print("Zorya: To exit command runner, type 'exit_cmd'.")
@@ -39,7 +39,7 @@ def load_cmd(dummy_parameter):
         else:
             _run_system_command(user_input)
 
-def ping_specific_site(dummy_param):
+def ping_specific_site(_):
     input_site = input("Zorya: Enter the site to ping (e.g., google.com)\nYou: ")
     command = f"ping {input_site}"
     _run_system_command(command)

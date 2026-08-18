@@ -1,9 +1,11 @@
 import os
 from winotify import Notification, audio
 from datetime import datetime
+import threading as parallel
 
 _log_path = os.path.join(os.path.dirname(__file__), "Logs")
 last_log_entry = ""
+write_lock = parallel.Lock()
 
 sessionID = "$00"
 
@@ -22,11 +24,12 @@ def _log_builder(_log_data):
     last_log_entry = log_entry
     if "[ERROR]" in last_log_entry:
         notification_message = f"[{status}] [{action}] {details}"
-        log_notifier(notification_message)
+        Zorya_notifier(notification_message, "Zorya System Error")
     _log_registration(log_entry.strip("\n"))
 
 def data_collection(_data_type: str, _action: str, _details: str):
-    _log_builder([_data_type, _action, _details])
+    with write_lock:
+        _log_builder([_data_type, _action, _details])
 
 def session_setter(s_id: str):
     global sessionID
@@ -49,7 +52,7 @@ def log_clean():
     log_header = [
         "Zorya General System Log",
         "──────────────────────────────────────────────────────────────────────────────────────────────────────────────",
-        "[TIMESTAMP] [SESSIONID] [STATUS] [ACTION] [DETAILS]"
+        "[TIMESTAMP] [SESSIONID] [MODULE] [ACTION] [DETAILS]"
     ]
     log_file_path = os.path.join(_log_path, "general_system_log.txt")
     try:
@@ -68,11 +71,14 @@ def count_log_lines():
         data_collection("LOG", "ERROR", f"Error counting log lines: {e}")
         return 0
          
-def log_notifier(message: str):
+def Zorya_notifier(message: str, title: str):
     try:
         Zorya_icon = os.path.join(os.path.dirname(__file__), "icon", "Zorya.ico")
-        toast = Notification(app_id="Zorya.System",title="Error",msg=message,icon=Zorya_icon)
+        toast = Notification(app_id="Zorya.System",title=title,msg=message,icon=Zorya_icon)
         toast.set_audio(audio.Default, loop=False)
         toast.show()
     except Exception as e:
         data_collection("LOG", "ERROR", f"Notification failed: {e}")
+        
+#--------------------------------------------------------------------------------------------------------
+#------------------------------------------Log analyzer WIP----------------------------------------------

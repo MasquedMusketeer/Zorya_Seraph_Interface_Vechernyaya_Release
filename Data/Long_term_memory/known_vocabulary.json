@@ -38,7 +38,8 @@
             "show",
             "display",
             "report",
-            "tell"
+            "tell",
+            "when"
         ],
         "SET": [
             "set",
@@ -122,7 +123,9 @@
             "later",
             "soon",
             "after",
-            "before"
+            "before",
+            "current",
+            "last"
         ],
         "QUANTITY": [
             "all",
@@ -198,7 +201,8 @@
             "ram",
             "pc",
             "virus",
-            "backup"
+            "backup",
+            "alert"
         ],
         "NETWORK": [
             "network",
@@ -262,7 +266,21 @@
             "droidcam",
             "githubdesktop",
             "necesse",
-            "wolong"
+            "wolong",
+            "winpinator",
+            "mobaxterm",
+            "updf",
+            "larian",
+            "bg3",
+            "vesktop",
+            "skyrimse",
+            "rimworld",
+            "warframe",
+            "soulmask",
+            "enshrouded",
+            "system_dash",
+            "anki",
+            "palworld"
         ],
         "PATH": [
             "path",
@@ -273,7 +291,9 @@
         "FOLDER": [
             "folder",
             "souls_saves",
-            "documents"
+            "documents",
+            "downloads",
+            "Zorya_project"
         ],
         "SETTING": [
             "volume",
@@ -286,7 +306,9 @@
             "status",
             "routine",
             "protocol",
-            "intent"
+            "intent",
+            "parameter",
+            "schedule"
         ],
         "LOG": [
             "log",

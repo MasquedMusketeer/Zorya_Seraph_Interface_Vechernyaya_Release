@@ -1,25 +1,11 @@
-import os
 import re
-import json
 from . import log_handler as log
-text_buffer = {}
-text_file_path = os.path.join(os.path.dirname(__file__),"Long_term_memory", "text_lines.json")
-
-def load_text_file():
-    global text_buffer
-    try:
-        with open(text_file_path, 'r', encoding='utf-8') as text_file:
-            text_buffer = json.load(text_file)
-        return ("Text file loaded", 0)
-    except FileNotFoundError:
-        log.data_collection("TEXT", "ERROR", "Text index file not found.")
-        return ("Bad text file path", 1)
-
-def clean_text(category: str, line:str ):
+#_________________________________________________________________________________________________________________________
+#__________________________________________________TEXT FORMAT HANDLER____________________________________________________
+def clean_text(text_line: str):
     small_text = "Zorya: "
     big_text = []
-    global text_buffer
-    processing_line = text_buffer.get(category).get(line)
+    processing_line = text_line
     if "/" in processing_line:
         parts = processing_line.split("/") 
         big_text.append("MULTILINE")
@@ -47,13 +33,14 @@ def header_return():
     "                                     ███████╗╚██████╔╝██║  ██║   ██║   ██║  ██║",
     "                                     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝",
     "                                    ┌──────────────────────────────────────────┐",
-    "                                    │         ZORYA SERAPH INTERFACE           │",
+    "                                    │            ZORYA VIGIL PROTOCOL          │",
+    "                                    │           Designation: M.I.D.A.S.        │",
     "                                    ├──────────────────────────────────────────┤",
     "                                    │       Virtual assistant and banter       │",
     "                                    │          companion for your pc.          │",
     "                                    │                                          │",
-    f"                                    │             Ver {mfl.flag_return("app_version")} {mfl.flag_return("development_state")}              │",
-    "                                    │           Vechernyaya release            │",
+    f"                                    │              Ver {mfl.flag_return("app_version")} {mfl.flag_return("development_state")}              │",
+    "                                    │            Vechernyaya release           │",
     "                                    │                                          │",
     "                                    │Mendoukusai ByteLabs   All Rights Reserved│",
     "                                    └──────────────────────────────────────────┘",
@@ -61,3 +48,15 @@ def header_return():
     ""
     ]
     return interface_title
+
+# """
+#  ██████╗    ██████╗   ██████╗     ██████╗
+#  ╚════██╗  ██╔═══██╗  ██╔═══██╗ ██╔═══██║
+#   █████╔╝  ██║   ██║  ██████╔╝  ╚═██████║
+#  ╚════██╗  ██║   ██║  ██╔═══╝   ██╔═══██║
+#  ██████╔╝  ╚██████╔╝  ██║       ██║   ██║
+#  ╚═════╝    ╚═════╝   ╚═╝       ╚═╝   ╚═╝
+# """
+
+#_________________________________________________________________________________________________________________________
+#________________________________________________UNSPOKEN TEXT HANDLER____________________________________________________
